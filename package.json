@@ -5,5 +5,10 @@
   "main": "index.html",
   "repository": "https://github.com/yodacom/bzquiz.git",
   "author": "Jeremy Black",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer-stylus": "^0.13.0",
+    "s-grid": "^1.2.0",
+    "stylus": "^0.54.5"
+  }
 }
