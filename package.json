@@ -1,0 +1,9 @@
+{
+  "name": "bzquiz",
+  "version": "0.0.1",
+  "description": "Beer Zap Quiz",
+  "main": "index.html",
+  "repository": "https://github.com/yodacom/bzquiz.git",
+  "author": "Jeremy Black",
+  "license": "MIT"
+}
