@@ -10,5 +10,9 @@
     "autoprefixer-stylus": "^0.13.0",
     "s-grid": "^1.2.0",
     "stylus": "^0.54.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-stylus": "^2.6.0"
   }
 }
