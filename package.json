@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer-stylus": "^0.13.0",
+    "gulp-livereload": "^3.8.1",
     "nib": "^1.1.2",
     "s-grid": "^1.2.0",
     "stylus": "^0.54.5"
