@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 gulp.task('styles', function(){
-    gulp.src('style.styl')
+    gulp.src('./css/style.styl')
         .pipe(stylus())
         .pipe(gulp.dest('./css/'));
 });
