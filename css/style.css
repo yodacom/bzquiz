@@ -887,6 +887,7 @@ See: https://github.com/juliancwirko/s-grid */
   flex-wrap: wrap;
   align-items: flex-start;
   flex-direction: row;
+  flex-direction: column;
 }
 .my-grid .my-cell {
   flex-basis: calc(100% * 1 - 1.25rem);
