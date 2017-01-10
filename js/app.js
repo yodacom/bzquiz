@@ -39,11 +39,11 @@ $(function() {
 };
 
 		var success = function(data) {
-	 beerList = data.items;
+	 beerList = data.data;
 	 // Log data
 	 console.log(data);
 
-	 $.each(data.items, function(i, item) {
+	 $.each(data.data, function(i, item) {
 		 // Get output
 		var output = getOutput(item);
 
@@ -58,7 +58,7 @@ $(function() {
 	 $("#buttons").append(buttons);
 	
 };
-		$.get(url,data,success);
+		$.get(url,beerData,success);
 
 	}
 
@@ -90,7 +90,7 @@ $(function() {
 		var img = ('<img>', {src:beerPicIcon});
 		a.append(img);
 		listLeft.append(a);
-		
+
 
 	}
 
