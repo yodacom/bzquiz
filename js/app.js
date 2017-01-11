@@ -67,11 +67,11 @@ $(function() {
 	var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
 }
 
-	beerList = data.items;
+	// beerList = data.items;
 
 
 
-	$("#textContainer").append(output);
+	// $("#textContainer").append(output);
 
 	// Build output
 
