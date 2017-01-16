@@ -30,18 +30,25 @@ See: https://github.com/juliancwirko/s-grid */
 }
 
 .vgrid{
-    background-color: #D5D5D7
+    background-color: #E9E9EA
     width:600px;
-    margin:0 auto;
     box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    max-width: 50rem;
+    margin-left:auto;
+    margin-right: auto;
+    padding 5px
     div
-        padding 5px
         &:nth-child(odd)
             background-color #eee
         &:nth-child(even)
             background-color #fff
 }
+
+// font=awesome additional styles
+
+.fa-question-circle-o:before
+    cursor: pointer;
 
 /* general grid style */
 

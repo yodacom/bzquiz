@@ -35,8 +35,8 @@ $(function() {
  
 		var beerData = {
 	 q: q,
-	key: "758086eed7b9e97ad41b21d18b37b4a7"
-};
+			key: "758086eed7b9e97ad41b21d18b37b4a7"
+		};
 
 		var success = function(data) {
 	 beerList = data.data;
@@ -57,15 +57,15 @@ $(function() {
 	 // Display buttons
 	 $("#buttons").append(buttons);
 	
-};
+		};
 		$.get(url,beerData,success);
 
 	}
 
 // Get Beer data
 	function loadBeer(beerId) { 
-	var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
-}
+		var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
+	}
 
 	// beerList = data.items;
 
@@ -84,14 +84,45 @@ $(function() {
 		var beerStyle = item.data.style.category.name;
 		var beerPicIcon = item.data.labels.icon;
 
-		var li = $('<li>', {class:'text-container'});
-		var listLeft = $('<div>',{class:'list-left'});
-		var a = $('<a>', {class:'beerLink'});
-		var img = ('<img>', {src:beerPicIcon});
+		var li = $("<li>", {class:"text-container"});
+		var listLeft = $("<div>",{class:"list-left"});
+		var a = $("<a>", {class:"beerLink"});
+		var img = ("<img>", {src:beerPicIcon});
 		a.append(img);
 		listLeft.append(a);
 
 
 	}
 
+});
+// color chart on Wikpedia https://en.wikipedia.org/wiki/Standard_Reference_Method#Color_based_on_Standard_Reference_Method_.28SRM.29
+
+// 
+$(document).ready(function(){
+ 
+    $.ajax({
+        type: "GET",
+        url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=beer_color&callback=?",
+        contentType: "application/json; charset=utf-8",
+        async: false,
+        dataType: "json",
+        success: function (data, textStatus, jqXHR) {
+ 
+            var markup = data.parse.text["*"];
+            var blurb = $('<div></div>').html(markup);
+ 
+            // remove links as they will not work
+            blurb.find('a').each(function() { $(this).replaceWith($(this).html()); });
+ 
+            // remove any references
+            blurb.find('sup').remove();
+ 
+            // remove cite error
+            blurb.find('.mw-ext-cite-error').remove();
+            $('#article').html($(blurb).find('p'));
+ 
+        },
+        error: function (errorMessage) {
+        }
+    });
 });
