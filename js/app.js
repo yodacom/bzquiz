@@ -62,6 +62,17 @@ $(function() {
 
 	}
 
+//Clicking the swatch
+
+    $('.swatch').click(function(){
+        var color = $(this).data("color");
+        $('#selectedColor').text(color);
+        window.location = window.location + '#close';
+        console.log($(this).class());
+    });
+
+
+
 // Get Beer data
 	function loadBeer(beerId) { 
 		var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
@@ -90,7 +101,6 @@ $(function() {
 		var img = ("<img>", {src:beerPicIcon});
 		a.append(img);
 		listLeft.append(a);
-
 
 	}
 
