@@ -1,7 +1,0 @@
-Beer strength is the alcohol content measured by volume expressed as a percentage, that is to say, the number of millilitres of absolute alcohol in 100 ml of beer.
-
-The most accurate method of determining the strength of a beer would be to take a quantity of beer and distill off a spirit that contains all of the alcohol that was in the beer. The alcohol content of the spirit can then be measured using a hydrometer and tables of density of alcohol and water mixtures. A simple calculation would then yield the strength of the beer. This method is accurate, but is time, energy and beer consuming.
-
-A second method is the ebulliometer method, which uses the difference between the boiling temperature of pure water and the boiling temperature of the liquor (beer) being tested. This method is also accurate and time-consuming, but uses less energy and beer.
-
-The most common method of estimating the strength of a beer is to measure the density of the wort before fermentation and then to measure the density once the fermentation is completed, and to use these two data points in an empirical formula which estimates the alcohol content or strength of the beer.

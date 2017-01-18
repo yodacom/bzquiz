@@ -22,9 +22,9 @@ gulp.task("scripts", function(){
 
 // Styles Task
 gulp.task("styles", function(){
-	gulp.src("./css/style.styl")
+	gulp.src("./css/style.styl, ./css/srmTable.styl")
         .pipe(stylus())
-        .on("error", errorLog)
+        // .on("error", errorLog)
         .pipe(gulp.dest("./css/"))
 		.pipe(livereload())
 		.pipe(connect.reload());
