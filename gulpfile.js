@@ -29,7 +29,7 @@ gulp.task("styles", function(){
 		.on("error", errorLog)
         .pipe(gulp.dest("./css/"))
 		.pipe(livereload());
-		//.pipe(connect.reload());
+		.pipe(connect.reload());
 });
 
 // Watch Styles Task
