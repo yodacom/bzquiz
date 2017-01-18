@@ -28,7 +28,7 @@ gulp.task("styles", function(){
         .pipe(stylus())
 		.on("error", errorLog)
         .pipe(gulp.dest("./css/"))
-		.pipe(livereload());
+		.pipe(livereload())
 		.pipe(connect.reload());
 });
 
