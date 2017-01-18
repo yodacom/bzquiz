@@ -2,7 +2,8 @@ var gulp = require("gulp"),
 	stylus = require("gulp-stylus"),
 	livereload = require("gulp-livereload"),
 	uglify = require("gulp-uglify"),
-	connect = require("gulp-connect");
+	connect = require("gulp-connect"),
+	webserver = require("gulp-webserver");
 	
 
 // Error Log function
@@ -27,8 +28,8 @@ gulp.task("styles", function(){
         .pipe(stylus())
 		.on("error", errorLog)
         .pipe(gulp.dest("./css/"))
-		.pipe(livereload())
-		.pipe(connect.reload());
+		.pipe(livereload());
+		//.pipe(connect.reload());
 });
 
 // Watch Styles Task
