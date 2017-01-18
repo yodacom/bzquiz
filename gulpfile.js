@@ -3,6 +3,7 @@ var gulp = require("gulp"),
 	livereload = require("gulp-livereload"),
 	uglify = require("gulp-uglify"),
 	connect = require("gulp-connect");
+	
 
 // Error Log function
 function errorLog(error) {
@@ -14,7 +15,7 @@ function errorLog(error) {
 //Uglifies
 
 gulp.task("scripts", function(){
-	gulp.src("js/*.js")
+	gulp.src("./js/*.js")
         .pipe(uglify())
         .pipe(gulp.dest("build/js"))
 		.pipe(livereload());
@@ -22,9 +23,9 @@ gulp.task("scripts", function(){
 
 // Styles Task
 gulp.task("styles", function(){
-	gulp.src("./css/style.styl, ./css/srmTable.styl")
+	gulp.src("./css/stylus.styl, ./css/srmTable.styl")
         .pipe(stylus())
-        // .on("error", errorLog)
+		.on("error", errorLog)
         .pipe(gulp.dest("./css/"))
 		.pipe(livereload())
 		.pipe(connect.reload());
@@ -37,7 +38,7 @@ gulp.task("watch:styles", function(){
 
 // Watch Task
 gulp.task("watch", function(){
-	gulp.watch("js/*.js", ["scripts"]);
+	gulp.watch("./js/*.js", ["scripts"]);
 });
 
 // Live reload
