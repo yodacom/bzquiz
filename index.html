@@ -45,21 +45,24 @@
     
     <div class="s-grid-cell s-grid-cell-md-6"><h4>Choose Your Value</h4>
     </div>
-
-    <div class="s-grid-cell s-grid-cell-md-2"><h4>Your Choice</h4></div>
-
+<div class="s-grid-cell s-grid-cell-md-2"><h4>Your Choice</h4> </div>
 
   <div class="s-grid-cell s-grid-cell-md-4">Color
     <i class="fa fa-question-circle-o" aria-hidden="true"></i>
   </div>
 
 <div class="s-grid-cell s-grid-cell-md-6">
+      <a href="#openModal">Click here to Choose Color</a>
+  </div>
+   <div class="s-grid-cell s-grid-cell-md-2" id="selectedColor">
+    </div>
+
  <div id="openModal" class="modalDialog">
             <div>	<a href="#close" title="Close" class="close" id="btnClose">X</a>
                 <div id="wrapper">
                     <div id="container_left">
                         <div id="contents">
-                            <div class="s-grid-top">
+                            <!--<div class="s-grid-top">-->
 
                                 <div class="s-grid-cell s-grid-cell-md-4">
                                     <div class="swatch paleStraw" data-color="pale straw">
@@ -162,50 +165,31 @@
                               </div>
                         </div>
                     </div>
-                </div>
             </div>
-</div>
 
 
-  <!--<div class="s-grid-cell s-grid-cell-md-6">
-    <select name="beerAttributes">
-    <option value="paleStraw" class="paleStraw">Pale Straw</option>
-    <option value="straw">Straw</option>
-    <option value="paleGold">Pale Gold</option>
-    <option value="deepGold">Deep Gold</option>
-    <option value="paleAmber">Pale Amber</option>
-    <option value="mediumAmber">Medium Amber</option>
-    <option value="deepAmber">Deep Amber</option>
-    <option value="amberBrown">Amber-Brown</option>
-    <option value="brown">Brown</option>
-    <option value="rubyBrown">Ruby Brown</option>
-    <option value="deepBrown">Deep Brown</option>
-    <option value="black"><span style="background-color: #31302c">Black</span></option>
-    </select>
-  </div>-->
-
-   <div class="s-grid-cell s-grid-cell-md-2">
-        <button id="btnSelectAlcohol">
+   <!--<div class="s-grid-cell s-grid-cell-md-2">
+        <!--<button id="btnSelectAlcohol">
         <i class="fa fa-sign-in" aria-hidden="true"></i>
-        </button>
-    </div>
+        <!--</button>
+    </div>-->
 
   <div class="s-grid-cell s-grid-cell-md-4">Hoppyness
     <i class="fa fa-question-circle-o" aria-hidden="true" id="hoppyness"></i>
   </div>
   <div class="s-grid-cell s-grid-cell-md-6">
     <select name="beerAttributes">
-    <option value="High">High</option>
+    <option value="Stong">High</option>
     <option value="Medium">Medium</option>
     <option value="Low">Low</option>
     </select>
   </div>
 
-  <div class="s-grid-cell s-grid-cell-md-2">
-      <button id="btnSelectHoppyness">
+  <!--<div class="s-grid-cell s-grid-cell-md-2">
+      <!--<button id="btnSelectHoppyness">
           <i class="fa fa-sign-in" aria-hidden="true"></i>
         </button>
-  </div>
+  </div>-->
 
   <div class="s-grid-cell s-grid-cell-md-4">Bitterness
     <i class="fa fa-question-circle-o" aria-hidden="true" id="bitterness"></i>
@@ -213,16 +197,16 @@
   <div class="s-grid-cell s-grid-cell-md-6">
     <select name="beerAttributes">
     <option value="Strong">Strong</option>
-    <option value="Medium">Medium</option>
+    <option value="Average">Medium</option>
     <option value="Low">Low</option>
     </select>
   </div>
 
-  <div class="s-grid-cell s-grid-cell-md-2">
+  <!--<div class="s-grid-cell s-grid-cell-md-2">
       <button id="btnSelectBitterness">
         <i class="fa fa-sign-in" aria-hidden="true"></i>
       </button>
-  </div>
+  </div>-->
 
   <div class="s-grid-cell s-grid-cell-md-4">Alcohol Content
     <i class="fa fa-question-circle-o" aria-hidden="true" id="alcoholContent"></i>
@@ -234,10 +218,11 @@
     </select>
     </div>
     
-    <div class="s-grid-cell s-grid-cell-md-2">
+    <!--<div class="s-grid-cell s-grid-cell-md-2">
         <button id="btnSelectAlcohol">
         <i class="fa fa-sign-in" aria-hidden="true"></i>
         </button>
+    </div>-->
     </div>
 </div>
 

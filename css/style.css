@@ -908,7 +908,7 @@ See: https://github.com/juliancwirko/s-grid */
   font-size: 23px;
 }
 .quiz-wrapper {
-  disply: flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -1014,4 +1014,3 @@ See: https://github.com/juliancwirko/s-grid */
   border: 0;
   padding: 0;
 }
-/* Test CSS copied rom Video Search Page */

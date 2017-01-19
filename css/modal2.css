@@ -7,55 +7,18 @@
     transform: translate(-50%, -50%);
     cursor: pointer;
 }
-/* Colors to choose from */
 
-.paleStraw {
-	background-color: #ffff45;
+.paleStraw{
+    background-color: #ffff45;
+}
+.straw {
+    background-color: #ffe93e;
 }
 
-.straw option {
-	background-color: #ffe93e;
+.paleGold{
+    background-color: #fed849;
 }
 
-.paleGold {
-	background-color: #fed849;
-}
-
-.deepGold {
-	background-color: #ffa846;
-}
-
-.paleAmber {
-	background-color: #f49f44;
-}
-
-.mediumAmber {
-	background-color: #d77f59;
-}
-
-.deepAmber {
-	background-color: #94523a;
-}
-
-.amberBrown {
-	background-color: #804541;
-}
-
-.brown {
-	background-color: #5b342f;
-}
-
-.rubyBrown {
-	background-color: #4c3b2b;
-}
-
-.deepBrown {
-	background-color: #38302e;
-}
-
-.black {
-	background-color: #31302c;
-}
 
 
 .modalDialog {
@@ -86,9 +49,9 @@
     padding: 5px 20px 13px 20px;
     border-radius: 10px;
     background: #fff;
-    /*background: -moz-linear-gradient(#fff, #999);
+    background: -moz-linear-gradient(#fff, #999);
     background: -webkit-linear-gradient(#fff, #999);
-    background: -o-linear-gradient(#fff, #999);*/
+    background: -o-linear-gradient(#fff, #999);
 }
 .close {
     background: #606061;

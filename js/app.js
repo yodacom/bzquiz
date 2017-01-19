@@ -1,5 +1,14 @@
 /* eslint-env jquery */
 
+// Clicking the swatch and moving answer to Your Choice
+
+	$(".swatch").click(function(){
+		var color = $(this).data("color");
+		$("#selectedColor").text(color);
+		window.location = window.location + "#close";
+		// console.log($(this).class());
+	});
+
 // Searchbar Handler
 
 $(function() {
@@ -44,10 +53,11 @@ $(function() {
 	 console.log(data);
 
 	 $.each(data.data, function(i, item) {
-		 // Get output
+		 
+// Get output
 		var output = getOutput(item);
 
-	// Display results
+// Display results
 		$("#textContainer").append(output);
 
 	 });
@@ -61,15 +71,6 @@ $(function() {
 		$.get(url,beerData,success);
 
 	}
-
-//Clicking the swatch
-
-    $('.swatch').click(function(){
-        var color = $(this).data("color");
-        $('#selectedColor').text(color);
-        window.location = window.location + '#close';
-        console.log($(this).class());
-    });
 
 
 
