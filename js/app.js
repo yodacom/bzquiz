@@ -9,6 +9,30 @@
 		// console.log($(this).class());
 	});
 
+	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
+	// hoppyness
+	
+	// $(".hoppyness").clone().insertAfter(".selectedHoppyness");
+
+$( "select" )
+  .change(function () {
+    var str = "";
+    $( "select option:selected" ).each(function() {
+      str += $( this ).text() + " ";
+    });
+    $( "#selectedHoppyness" ).text( str );
+  })
+  .change();
+	
+
+	// Alcohol
+	$(".alcohol").clone().insertAfter(".selectedAlcohol");
+
+	// Bitterness
+	$(".bitterness").clone().insertAfter(".selectedBitterness");
+
+
+
 // Searchbar Handler
 
 $(function() {
