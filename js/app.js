@@ -2,7 +2,7 @@
 
 // Clicking the swatch and moving answer to Your Choice
 
-	
+
 
 	// Alcohol
 	$(".alcohol").clone().insertAfter(".selectedAlcohol");
@@ -16,22 +16,37 @@
 
 $(function() {
 
-	$(".swatch").click(function(){
+	$('#contents').on('click', '.swatch', function(){
 		var color = $(this).data("color");
 		$("#selectedColor").text(color);
-		window.location = window.location + "#close";
+		$(".modal").hide();
 		// console.log($(this).class());
 	});
 
 	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
 	// hoppyness
-	
+
 	// $(".hoppyness").clone().insertAfter(".selectedHoppyness");
 
 $("#beerAttributes").change(function(e) {
   e.preventDefault();
   var answer = $(this).val();
   $("#selectedHoppyness").append(answer);
+});
+
+$(".modalTrigger").click(function(e){
+    e.preventDefault();
+    $.get("js/documents/" + $(this).data("page"))
+        .success(function(data){
+            $("#contents").html(data);
+        });
+    $(".modal").show();
+});
+
+$(".dialogs").on('click', '#btnClose', function(e){
+    e.preventDefault();
+    console.log("Close the modal");
+    $(".modal").hide();
 });
 
 	var beerList =[];
@@ -58,12 +73,12 @@ $("#beerAttributes").change(function(e) {
 
 	//get data from form
 		q = $("#query").val();
-	
 
-	//Get Request FROM API 
- 
+
+	//Get Request FROM API
+
 		var url = "http://api.brewerydb.com/v2/search";
- 
+
 		var beerData = {
 	 q: q,
 			key: "758086eed7b9e97ad41b21d18b37b4a7"
@@ -75,7 +90,7 @@ $("#beerAttributes").change(function(e) {
 	 console.log(data);
 
 	 $.each(data.data, function(i, item) {
-		 
+
 // Get output
 		var output = getOutput(item);
 
@@ -88,7 +103,7 @@ $("#beerAttributes").change(function(e) {
 
 	 // Display buttons
 	 $("#buttons").append(buttons);
-	
+
 		};
 		$.get(url,beerData,success);
 
@@ -97,7 +112,7 @@ $("#beerAttributes").change(function(e) {
 
 
 // Get Beer data
-	function loadBeer(beerId) { 
+	function loadBeer(beerId) {
 		var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
 	}
 
