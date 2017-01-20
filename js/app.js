@@ -2,27 +2,6 @@
 
 // Clicking the swatch and moving answer to Your Choice
 
-	$(".swatch").click(function(){
-		var color = $(this).data("color");
-		$("#selectedColor").text(color);
-		window.location = window.location + "#close";
-		// console.log($(this).class());
-	});
-
-	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
-	// hoppyness
-	
-	// $(".hoppyness").clone().insertAfter(".selectedHoppyness");
-
-$( "select" )
-  .change(function () {
-    var str = "";
-    $( "select option:selected" ).each(function() {
-      str += $( this ).text() + " ";
-    });
-    $( "#selectedHoppyness" ).text( str );
-  })
-  .change();
 	
 
 	// Alcohol
@@ -36,6 +15,25 @@ $( "select" )
 // Searchbar Handler
 
 $(function() {
+
+	$(".swatch").click(function(){
+		var color = $(this).data("color");
+		$("#selectedColor").text(color);
+		window.location = window.location + "#close";
+		// console.log($(this).class());
+	});
+
+	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
+	// hoppyness
+	
+	// $(".hoppyness").clone().insertAfter(".selectedHoppyness");
+
+$("#beerAttributes").change(function(e) {
+  e.preventDefault();
+  var answer = $(this).val();
+  $("#selectedHoppyness").append(answer);
+});
+
 	var beerList =[];
 
 	const searchField = $("#query");
