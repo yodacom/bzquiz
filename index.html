@@ -1,4 +1,4 @@
-<doctype html>
+<!doctype html>
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/modal.css">
         <script src="https://use.fontawesome.com/96fe5c4022.js"></script>
-        
+
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -42,136 +42,32 @@
 <div class="s-grid-cell s-grid-cell-md-6">
 <div class="s-grid-top vgrid">
     <div class="s-grid-cell s-grid-cell-md-4 title-line"><h4>Beer Attribute</h4></div>
-    
+
     <div class="s-grid-cell s-grid-cell-md-6"><h4>Choose Your Value</h4>
     </div>
 <div class="s-grid-cell s-grid-cell-md-2"><h4>Your Choice</h4> </div>
 
   <div class="s-grid-cell s-grid-cell-md-4">Color
-    <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+      <button data-page="beerColor.html" class="modalTrigger icon">
+          <i class="fa fa-question-circle-o" aria-hidden="true"  ></i>
+      </button>
   </div>
 
 <div class="s-grid-cell s-grid-cell-md-6">
-      <a href="#openModal">Click here to Choose Color</a>
+      <a href="#" id="colorPicker" class="modalTrigger" data-page="swatches.html">Click here to Choose Color</a>
   </div>
 
     <div class="s-grid-cell s-grid-cell-md-2" id="selectedColor">
     </div>
 
- <div id="openModal" class="modalDialog">
-            <div>	<a href="#close" title="Close" class="close" id="btnClose">X</a>
-                <div id="wrapper">
-                    <div id="container_left">
-                        <div id="contents">
-                            <!--<div class="s-grid-top">-->
 
-                                <div class="s-grid-cell s-grid-cell-md-4">
-                                    <div class="swatch paleStraw" data-color="pale straw">
-                                    </div>
-                                    <div>
-                                        Pale Straw
-                                    </div>
-                                </div>
-                          
-
-                                <div class="s-grid-cell s-grid-cell-md-4">
-                                    <div class="swatch straw"  data-color="straw">
-                                    </div>
-                                    <div>
-                                        Straw
-                                    </div>
-                              </div>
-
-                                <div class="s-grid-cell s-grid-cell-md-4">
-                                    <div class="swatch paleGold"  data-color="pale gold">
-                                    </div>
-                                    <div>
-                                        Pale Gold
-                                    </div>
-                                </div>
-
-                                <div class="s-grid-cell s-grid-cell-md-4">
-                                    <div class="swatch deepGold"  data-color="deepGold">
-                                    </div>
-                                    <div>
-                                        Deep Gold
-                                    </div>
-                                </div>
-
-                                <div class="s-grid-cell s-grid-cell-md-4">
-                                    <div class="swatch paleAmber"  data-color="paleAmber">
-                                    </div>
-                                    <div>
-                                        Pale Amber
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="s-grid-cell s-grid-cell-md-4">
-                                    <div class="swatch mediumAmber"  data-color="mediumAmber">
-                                    </div>
-                                    <div>
-                                        Medium Amber
-                                    </div>
-                                  </div>
-
-                                    <div class="s-grid-cell s-grid-cell-md-4">
-                                      <div class="swatch deepAmber"  data-color="deepAmber">  
-                                      </div>
-                                      <div>
-                                      Deep Amber
-                                      </div>
-                                    </div>
-
-                                    <div class="s-grid-cell s-grid-cell-md-4">
-                                      <div class="swatch amberBrown"  data-color="amberBrown">  
-                                      </div>
-                                      <div>
-                                      Amber Brown
-                                      </div>
-                                    </div>
-
-                                    <div class="s-grid-cell s-grid-cell-md-4">
-                                      <div class="swatch brown"  data-color="brown">  
-                                      </div>
-                                      <div>
-                                      Brown
-                                      </div>
-                                    </div>
-
-                                    <div class="s-grid-cell s-grid-cell-md-4">
-                                      <div class="swatch rubyBrown"  data-color="rubyBrown">  
-                                      </div>
-                                      <div>
-                                      Ruby Brown
-                                      </div>
-                                    </div>
-
-                                    <div class="s-grid-cell s-grid-cell-md-4">
-                                      <div class="swatch deepBrown"  data-color="deepBrown">  
-                                      </div>
-                                      <div>
-                                      Deep Brown
-                                      </div>
-                                    </div>
-
-                                    <div class="s-grid-cell s-grid-cell-md-4">
-                                      <div class="swatch black"  data-color="black">  
-                                      </div>
-                                      <div>
-                                      Black
-                                      </div>
-                                    </div>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-            </div>
 
 
   <div class="s-grid-cell s-grid-cell-md-4">Hoppyness
-    <i class="fa fa-question-circle-o" aria-hidden="true" id="hoppyness">
-      
+      <button data-page="bitterness.html" class="modalTrigger icon">
+          <i class="fa fa-question-circle-o" aria-hidden="true"  ></i>
+      </button>
+
       <!--open description in modal window when click on icon-->
       <!--<div id="openModal2" class="modalDialog">
             <div>	<a href="/js/documents/bitterness.html" title="Close" class="close" id="btnClose">X</a>
@@ -236,6 +132,24 @@
 <p class="p">Like beer? Enjoy our next BeerZap event. Maybe be a judge?
   <a href="http://www.beerzap.com" target="_blank">When and Where</a></p>
   <p>Created by Jeremy Black aka Yoda of <a href="http://yodacom.com" target="_blank">Yodacom.com</a></p>
+
+
+<div class="dialogs">
+
+        <div id="openModal" class="modal">
+            <div id="wrapper">
+                <a href="#" title="Close" class="close" id="btnClose">X</a>
+
+                    <div id="container_left">
+                        <div id="contents">
+
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+
+</div>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>

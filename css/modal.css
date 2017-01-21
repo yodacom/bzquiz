@@ -72,11 +72,12 @@
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
     pointer-events: none;
+    display:none;
 }
-.modalDialog:target {
+/*.modalDialog:target {
     opacity:1;
     pointer-events: auto;
-}
+}*/
 .modalDialog > div {
     width: 550px;
     height:500px;
@@ -113,3 +114,33 @@
 .close:hover {
     background: #00d9ff;
 }
+
+.modal {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    display:none;
+}
+
+#wrapper{
+    position: fixed;
+    border-radius: 10px;
+    background: #fff;
+    top:50%;
+    left:50%;
+    width:60%;
+    height:60%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+.icon{
+    border:none;
+    background: none;
+}
+
+
