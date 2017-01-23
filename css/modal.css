@@ -13,7 +13,7 @@
 	background-color: #ffff45;
 }
 
-.straw option {
+.straw {
 	background-color: #ffe93e;
 }
 
@@ -74,6 +74,8 @@
     pointer-events: none;
     display:none;
 }
+
+
 /*.modalDialog:target {
     opacity:1;
     pointer-events: auto;
@@ -83,7 +85,6 @@
     height:500px;
     position: relative;
     margin: 75px auto;
-    overflow:auto;
     padding: 5px 20px 13px 20px;
     border-radius: 10px;
     background: #fff;
@@ -91,6 +92,11 @@
     background: -webkit-linear-gradient(#fff, #999);
     background: -o-linear-gradient(#fff, #999);*/
 }
+
+.fill-height-or-more > div {
+    flex:1;
+}
+
 .close {
     background: #606061;
     color: #FFFFFF;
@@ -124,6 +130,8 @@
     background: rgba(0, 0, 0, 0.8);
     z-index: 99999;
     display:none;
+    overflow: hidden;
+    
 }
 
 #wrapper{
@@ -135,12 +143,10 @@
     width:60%;
     height:60%;
     transform: translate(-50%, -50%);
-    text-align: left;
+    text-align: center;
 }
 
 .icon{
     border:none;
     background: none;
 }
-
-

@@ -26,12 +26,26 @@ $(function() {
 	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
 	// hoppyness
 
-	// $(".hoppyness").clone().insertAfter(".selectedHoppyness");
-
 $("#beerAttributes").change(function(e) {
   e.preventDefault();
   var answer = $(this).val();
   $("#selectedHoppyness").append(answer);
+});
+
+// bitterness selection
+
+$("#beerAttributes").change(function(e) {
+  e.preventDefault();
+  var answer = $(this).val();
+  $("#selectedBitterness").append(answer);
+});
+
+// Alcohol selection
+
+$("#beerAttributes").change(function(e) {
+  e.preventDefault();
+  var answer = $(this).val();
+  $("#selectedAlcohol").append(answer);
 });
 
 $(".modalTrigger").click(function(e){

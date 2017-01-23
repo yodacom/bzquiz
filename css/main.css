@@ -94,9 +94,13 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+body {
+    max-width: 900px;
+}
 
-
-
+.background-for-chosen-color {
+    div > selectedColor
+}
 
 
 
@@ -279,4 +283,8 @@ textarea {
     h3 {
         page-break-after: avoid;
     }
+}
+
+.fill-height-or-more > div {
+    flex:1;
 }
