@@ -131,7 +131,7 @@
     z-index: 99999;
     display:none;
     overflow: hidden;
-    
+
 }
 
 #wrapper{
@@ -144,7 +144,21 @@
     height:60%;
     transform: translate(-50%, -50%);
     text-align: center;
+    padding:10px;
 }
+
+#btnClose {
+    position: absolute;
+    top:5px;
+    left:5px;
+}
+
+#contents {
+    padding: 5px;
+    overflow: scroll;
+    height:100%;
+}
+
 
 .icon{
     border:none;

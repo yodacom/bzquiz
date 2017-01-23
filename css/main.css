@@ -98,6 +98,17 @@ body {
     max-width: 900px;
 }
 
+.templates {
+    display:none;
+}
+
+.search-result{
+    width:80%;
+    border:solid 1px #CCCCCC;
+}
+.beerName-header{}
+.beerName{}
+
 .background-for-chosen-color {
     div > selectedColor
 }
