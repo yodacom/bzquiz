@@ -105,6 +105,7 @@ body {
 .search-result{
     width:80%;
     border:solid 1px #CCCCCC;
+    margin: auto;
 }
 .beerName-header{}
 .beerName{}

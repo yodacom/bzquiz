@@ -125,6 +125,8 @@ $(".dialogs").on('click', '#btnClose', function(e){
 
 // Get Beer data
 	function loadBeer(beerId) {
+
+        // this was the var after the merge of mondays session:
 		var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
 	}
 
@@ -200,7 +202,7 @@ $(".dialogs").on('click', '#btnClose', function(e){
 		var beerAbv = item.abv ? item.abv : 'UNKNOWN';
 		var beerIbu = item.ibu ? item.ibu : 'UNKNOWN';
 		var beerStyle = item.style ? item.style.category.name : 'UNKNOWN';
-		var beerPicIcon = item.labels ? item.labels.icon : 'placeholder.jpg';
+		var beerPicIcon = item.labels ? item.labels.icon : 'http://beerzap.s3.amazonaws.com/beer_no_image_64x64.png';
 
 		var result = $('.templates > .search-result').clone();
 		var name = result.find('.beerName');
