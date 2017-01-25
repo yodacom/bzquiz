@@ -45,7 +45,7 @@
     <div class="s-grid-cell s-grid-cell-md-6"><h4>Choose Your Value</h4>
     </div>
 <div class="s-grid-cell s-grid-cell-md-2"><h4>Your Choice</h4> </div>
- 
+
  <!-- Begin Selections with modals, and pickers -->
 
     <!-- Begin Color Picking Section -->
@@ -93,7 +93,7 @@
 </div>
 
   <div class="s-grid-cell s-grid-cell-md-6">
-    <select name="beerAttributes">
+    <select id="beerBitterness">
     <option value="Strong">Strong</option>
     <option value="Medium">Medium</option>
     <option value="Low">Low</option>
@@ -113,7 +113,8 @@
       <!-- End open description in modal window when click on icon -->
   </div>
 
-    <div class="s-grid-cell s-grid-cell-md-6">  <select name="alcoholContent">
+    <div class="s-grid-cell s-grid-cell-md-6">
+        <select id="alcoholContent">
     <option value="High">High</option>
     <option value="Average">Average</option>
     <option value="Low">Low</option>
@@ -122,7 +123,7 @@
 
     <div class="s-grid-cell s-grid-cell-md-2" id="selectedAlcohol">
     </div>
-    
+
     <!-- end Alcohol section -->
 
    </div>
@@ -161,11 +162,12 @@
 
 <div class="templates">
     <div class="search-result s-grid-top">
-        <!--<div class="s-grid-cell s-grid-cell-md-6 beerName-header">Beer Name</div>
-        <div class="s-grid-cell s-grid-cell-md-6 brewery-header">Brewery</div>-->
-
-        <div class="s-grid-cell s-grid-cell-md-6 beerName"></div>
-        <div class="s-grid-cell s-grid-cell-md-6 brewery"></div>
+        <div class="s-grid-cell s-grid-cell-md-12 s-grid-top beer">
+            <div class="s-grid-cell s-grid-cell-md-3 beerImage">
+            </div>
+            <div class="s-grid-cell s-grid-cell-md-9 beerName">
+            </div>
+        </div>
     </div>
 </div>
 

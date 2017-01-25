@@ -152,7 +152,14 @@ li {
 }
 
 .background-for-chosen-color {
-    div > selectedColor
+}
+
+.beerDescription{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #999;
+    margin: 0;
 }
 
 
