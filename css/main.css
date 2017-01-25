@@ -120,10 +120,7 @@ body {
     width: 80%;
     margin: auto;
     background:#Ddd;
-
-    /*width:80%;
-    border:solid 1px #CCCCCC;
-    margin: auto;*/
+    /*border:solid 1px #222*/
 }
 
 li {
@@ -151,6 +148,7 @@ li {
  margin: 0 auto;
  background: #fff;
  padding: 10px;
+ font-size: 1.2em;
 }
 
 .background-for-chosen-color {

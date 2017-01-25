@@ -1,15 +1,6 @@
 /* eslint-env jquery */
 
-
-
-
-
 // Clicking the swatch and moving answer to Your Choice
-
-
-
-
-
 
 $(function() {
 
