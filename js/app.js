@@ -1,18 +1,15 @@
 /* eslint-env jquery */
 
+
+
+
+
 // Clicking the swatch and moving answer to Your Choice
 
 
 
-	// Alcohol
-	$(".alcohol").clone().insertAfter(".selectedAlcohol");
-
-	// Bitterness
-	$(".bitterness").clone().insertAfter(".selectedBitterness");
 
 
-
-// Searchbar Handler
 
 $(function() {
 
@@ -24,7 +21,15 @@ $(function() {
 	});
 
 	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
-	// hoppyness
+	
+    // // Alcohol
+	// $(".alcohol").clone().insertAfter(".selectedAlcohol");
+
+	// // Bitterness
+	// $(".bitterness").clone().insertAfter(".selectedBitterness");
+    
+    // // hoppyness
+    // $(".hoppyness").clone().insertAfter(".selectedHoppyness");
 
 $("#beerAttributes").change(function(e) {
   e.preventDefault();

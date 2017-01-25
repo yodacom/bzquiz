@@ -902,18 +902,8 @@ See: https://github.com/juliancwirko/s-grid */
     min-width: 0;
     margin: 0.625rem;
   }
-}
-.p {
-  padding-top: 130px;
-  font-size: 23px;
-}
-.quiz-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  margin-bottom: 1.5625rem;
-}
+
+
 /* ---- Search Form Styles  --- */
 .form-wrapper {
   display: flex;
