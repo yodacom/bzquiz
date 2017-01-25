@@ -72,7 +72,7 @@ $(".dialogs").on('click', '#btnClose', function(e){
 		search();
 	});
 
-	$("#results").on("click", ".beerLink", function(e){
+	$("#results").on("click", ".beerImg", function(e){
 		e.preventDefault();
 		var beerId = $(this).data("id");
 	});
@@ -126,8 +126,8 @@ $(".dialogs").on('click', '#btnClose', function(e){
 // Get Beer data
 	function loadBeer(beerId) {
 
-        // this was the var after the merge of mondays session:
-		var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
+        // Using localhost:3000 express server
+        var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
 	}
 
 	// beerList = data.items;
@@ -207,11 +207,12 @@ $(".dialogs").on('click', '#btnClose', function(e){
 		var result = $('.templates > .search-result').clone();
 		var name = result.find('.beerName');
 
-        var a = $("<a>", {class:"beerLink"});
+        var a = $("<a>", {class:"beerImg"});
         var img = $("<img>", {src:beerPicIcon});
+        var beerNameDisplay =$("<h3>", {class:"beerName"});
         a.append(img);
 		name.append(a);
-		name.append(beerName);
+		name.append(beerNameDisplay);
 
 		return result;
 	}

@@ -102,13 +102,43 @@ body {
     display:none;
 }
 
-.search-result{
-    width:80%;
-    border:solid 1px #CCCCCC;
+.search-result {
+    width: 80%;
     margin: auto;
+    background:#Ddd;
+
+    /*width:80%;
+    border:solid 1px #CCCCCC;
+    margin: auto;*/
 }
-.beerName-header{}
-.beerName{}
+
+li {
+  align-items: flex-start;
+  display: flex;
+  margin-bottom: 2px;
+  background: #fff;
+}
+
+.beerImg {
+  border-radius: 50%;
+  height: 35px;
+  margin-top: 10px;
+  min-width: 35px;
+  width: 35px;
+  vertical-align: bottom;
+  border: none;
+}
+
+.beerName-header{
+
+
+
+}
+.beerName {
+ margin: 0 auto;
+ background: #fff;
+ padding: 10px;
+}
 
 .background-for-chosen-color {
     div > selectedColor
