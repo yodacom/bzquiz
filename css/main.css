@@ -110,7 +110,7 @@ body {
 .beerName{}
 
 .background-for-chosen-color {
-    div > selectedColor
+
 }
 
 
@@ -297,5 +297,7 @@ body {
 }
 
 .fill-height-or-more > div {
-    flex:1;
+    -webkit-box-flex:1;
+        -ms-flex:1;
+            flex:1;
 }
