@@ -33,12 +33,11 @@
   <section class="searchResults" id="results">
     <div class="textContainer" id="textContainer">
 
-    </div>
-  </section>
+    </div> <!-- end textContainer -->
+  </section> <!-- end Search results section -->
+</section> <!-- end searchResults-container -->
 
-</section>
-
-
+<!-- begin Choose Beer Attributes -->
 <div class="s-grid-cell s-grid-cell-md-6">
 <div class="s-grid-top vgrid">
     <div class="s-grid-cell s-grid-cell-md-4 title-line"><h4>Beer Attribute</h4></div>
@@ -47,6 +46,9 @@
     </div>
 <div class="s-grid-cell s-grid-cell-md-2"><h4>Your Choice</h4> </div>
 
+ <!-- Begin Selections with modals, and pickers -->
+
+    <!-- Begin Color Picking Section -->
   <div class="s-grid-cell s-grid-cell-md-4">Color
       <button data-page="beerColor.html" class="modalTrigger icon">
           <i class="fa fa-question-circle-o" aria-hidden="true"  ></i>
@@ -59,28 +61,19 @@
 
     <div class="s-grid-cell s-grid-cell-md-2" id="selectedColor">
     </div>
+    <!-- End Color Picking Section -->
 
-
-
-
+    <!-- Begin Hoppyness Selection Section -->
   <div class="s-grid-cell s-grid-cell-md-4">Hoppyness
-      <button data-page="hoppyness.html" class="modalTrigger icon">
-          <i class="fa fa-question-circle-o" aria-hidden="true"  ></i>
-      </button>
-
       <!--open description in modal window when click on icon-->
-      <!--<div id="openModal2" class="modalDialog">
-            <div>	<a href="/js/documents/bitterness.html" title="Close" class="close" id="btnClose">X</a>
-                <div id="wrapper">
-                    <div id="container_left">
-                        <div id="contents">-->
-
-    </i>
+      <button data-page="hoppyness.html" class="modalTrigger icon">
+          <i class="fa fa-question-circle-o" aria-hidden="true" ></i>
+      </button>
   </div>
 
   <div class="s-grid-cell s-grid-cell-md-6">
     <select name="beerAttributes" id="beerAttributes">
-    <option value="Stong">High</option>
+    <option value="Stong">Strong</option>
     <option value="Medium">Medium</option>
     <option value="Low">Low</option>
     </select>
@@ -88,35 +81,53 @@
 
   <div class="s-grid-cell s-grid-cell-md-2" id="selectedHoppyness">
     </div>
+<!-- End Hoppyness Section -->
 
+<!-- Begin Bitterness Section -->
+<div class="s-grid-cell s-grid-cell-md-4">Bitterness
+      <!--open description in modal window when click on icon-->
+      <button data-page="bitterness.html" class="modalTrigger icon">
+          <i class="fa fa-question-circle-o" aria-hidden="true" ></i>
+      </button>
+      <!-- End open description in modal window when click on icon -->
+</div>
 
-  <div class="s-grid-cell s-grid-cell-md-4">Bitterness
-    <i class="fa fa-question-circle-o" aria-hidden="true" id="bitterness"></i>
-  </div>
   <div class="s-grid-cell s-grid-cell-md-6">
-    <select name="beerAttributes">
+    <select id="beerBitterness">
     <option value="Strong">Strong</option>
-    <option value="Average">Medium</option>
+    <option value="Medium">Medium</option>
     <option value="Low">Low</option>
     </select>
   </div>
 
+  <div class="s-grid-cell s-grid-cell-md-2" id="selectedBitterness">
+    </div>
+<!-- End Bitterness Section -->
 
+<!-- Begin Alcohol section -->
   <div class="s-grid-cell s-grid-cell-md-4">Alcohol Content
-    <i class="fa fa-question-circle-o" aria-hidden="true" id="alcoholContent"></i>
+     <!--open description in modal window when click on icon-->
+      <button data-page="alcohol.html" class="modalTrigger icon">
+          <i class="fa fa-question-circle-o" aria-hidden="true" ></i>
+      </button>
+      <!-- End open description in modal window when click on icon -->
   </div>
 
-    <div class="s-grid-cell s-grid-cell-md-6">  <select name="beerAttributes">
-    <option value="Strong">Strong</option>
-    <option value="Average">Medium</option>
-    <option value="Weak">Low</option>
+    <div class="s-grid-cell s-grid-cell-md-6">
+        <select id="alcoholContent">
+    <option value="High">High</option>
+    <option value="Average">Average</option>
+    <option value="Low">Low</option>
     </select>
     </div>
 
     <div class="s-grid-cell s-grid-cell-md-2" id="selectedAlcohol">
     </div>
 
-    </div>
+    <!-- end Alcohol section -->
+
+   </div>
+  </div>
 </div>
 
 
@@ -139,11 +150,9 @@
         <div id="openModal" class="modal">
             <div id="wrapper">
                 <a href="#" title="Close" class="close" id="btnClose">X</a>
+                    <div id="contents">
 
-
-                        <div id="contents">
-
-                        </div>
+                    </div>
 
             </div>
 
@@ -153,10 +162,12 @@
 
 <div class="templates">
     <div class="search-result s-grid-top">
-        <div class="s-grid-cell s-grid-cell-md-6 beerName-header">Beer Name</div>
-        <div class="s-grid-cell s-grid-cell-md-6 brewery-header">Brewery</div>
-        <div class="s-grid-cell s-grid-cell-md-6 beerName"></div>
-        <div class="s-grid-cell s-grid-cell-md-6 brewery"></div>
+        <div class="s-grid-cell s-grid-cell-md-12 s-grid-top beer">
+            <div class="s-grid-cell s-grid-cell-md-3 beerImage">
+            </div>
+            <div class="s-grid-cell s-grid-cell-md-9 beerName">
+            </div>
+        </div>
     </div>
 </div>
 

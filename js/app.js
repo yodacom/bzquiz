@@ -2,18 +2,6 @@
 
 // Clicking the swatch and moving answer to Your Choice
 
-
-
-	// Alcohol
-	$(".alcohol").clone().insertAfter(".selectedAlcohol");
-
-	// Bitterness
-	$(".bitterness").clone().insertAfter(".selectedBitterness");
-
-
-
-// Searchbar Handler
-
 $(function() {
 
 	$('#contents').on('click', '.swatch', function(){
@@ -24,25 +12,33 @@ $(function() {
 	});
 
 	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
-	// hoppyness
+
+    // // Alcohol
+	// $(".alcohol").clone().insertAfter(".selectedAlcohol");
+
+	// // Bitterness
+	// $(".bitterness").clone().insertAfter(".selectedBitterness");
+
+    // // hoppyness
+    // $(".hoppyness").clone().insertAfter(".selectedHoppyness");
 
 $("#beerAttributes").change(function(e) {
   e.preventDefault();
   var answer = $(this).val();
-  $("#selectedHoppyness").append(answer);
+  $("#selectedHoppyness").text(answer);
 });
 
 // bitterness selection
 
-$("#beerAttributes").change(function(e) {
+$("#beerBitterness").change(function(e) {
   e.preventDefault();
   var answer = $(this).val();
-  $("#selectedBitterness").append(answer);
+  $("#selectedBitterness").text(answer);
 });
 
 // Alcohol selection
 
-$("#beerAttributes").change(function(e) {
+$("#alcoholContent").change(function(e) {
   e.preventDefault();
   var answer = $(this).val();
   $("#selectedAlcohol").append(answer);
@@ -72,7 +68,7 @@ $(".dialogs").on('click', '#btnClose', function(e){
 		search();
 	});
 
-	$("#results").on("click", ".beerLink", function(e){
+	$("#results").on("click", ".beerImg", function(e){
 		e.preventDefault();
 		var beerId = $(this).data("id");
 	});
@@ -103,11 +99,13 @@ $(".dialogs").on('click', '#btnClose', function(e){
 
 	        $.each(data.data, function(i, item) {
 
-                // Get output
-		        var output = getOutput(item);
+	            if(item.nameDisplay) {
+                    // Get output
+                    var output = getOutput(item);
 
-                // Display results
-		        $("#textContainer").append(output);
+                    // Display results
+                    $("#textContainer").append(output);
+                }
 
 	        });
 
@@ -125,7 +123,9 @@ $(".dialogs").on('click', '#btnClose', function(e){
 
 // Get Beer data
 	function loadBeer(beerId) {
-		var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
+
+        // Using localhost:3000 express server
+        var url = "http://api.brewerydb.com/v2/search?q=fat tire&type=beer&key=758086eed7b9e97ad41b21d18b37b4a7";
 	}
 
 	// beerList = data.items;
@@ -196,22 +196,52 @@ $(".dialogs").on('click', '#btnClose', function(e){
 	function getOutput(item) {
 		var beerID = item.id;
 		var beerName = item.nameDisplay;
-		var beerDescription = item.beerDescription;
+		var beerDescription = item.description ? item.description : '';
 		var beerAbv = item.abv ? item.abv : 'UNKNOWN';
 		var beerIbu = item.ibu ? item.ibu : 'UNKNOWN';
 		var beerStyle = item.style ? item.style.category.name : 'UNKNOWN';
-		var beerPicIcon = item.labels ? item.labels.icon : 'placeholder.jpg';
+		var beerPicIcon = item.labels ? item.labels.icon : 'http://beerzap.s3.amazonaws.com/beer_no_image_64x64.png';
 
 		var result = $('.templates > .search-result').clone();
-		var name = result.find('.beerName');
+		var image = result.find('.beerImage');
 
-        var a = $("<a>", {class:"beerLink"});
+        var a = $("<a>", {class:"beerImg"});
         var img = $("<img>", {src:beerPicIcon});
         a.append(img);
-		name.append(a);
-		name.append(beerName);
+		image.append(a);
+
+		var name = result.find('.beerName');
+        var beerNameDisplay =$("<h4>", {class:"beerName", text:beerName});
+        beerDescription = beerDescription.length < 50
+            ? beerDescription
+            : beerDescription.substr(0, 50) + ' ... ';
+        var description = $("<div>", {class:"beerDescription", text:beerDescription});
+		name.append(beerNameDisplay);
+		name.append(description);
+
 
 		return result;
 	}
+
+
+/*
+ <div class="s-grid-cell s-grid-cell-md-12 s-grid-top beer">
+ <div class="s-grid-cell s-grid-cell-md-3 beerImage">
+ </div>
+ <div class="s-grid-cell s-grid-cell-md-9 beerName">
+ <h4 class="beerName">Coors</h4>
+ <div class="beerDescription">This is the description</div>
+ </div>
+ </div>
+
+ */
+
+
+
+
+
+
+
+
 
 });
