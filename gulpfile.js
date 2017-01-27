@@ -100,6 +100,6 @@ gulp.task('watch', function () {
 // Server Tasks
 //////////////////////////////
 gulp.task('default', ['scripts', 'watch', 'prefix']);
-gulp.task('serve', ['scripts', 'watch', 'prefix', 'webserver'])
+gulp.task('serve', ['scripts', 'styles', 'watch', 'prefix', 'webserver'])
 
 //gulp.task ("default", ["scripts", "watch:styles", "webserver"]);
