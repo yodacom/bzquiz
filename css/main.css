@@ -155,6 +155,7 @@ li {
  margin: 0 auto;
  background: #fff;
  padding: 10px;
+ text-align: left;
 
 }
 
@@ -275,6 +276,55 @@ h4.beerName {
   padding: 0;
 }
 
+
+/* ======= Quiz Submit Button ============ */
+
+.quizBtn button {
+  /*display: flex;
+  justify-content: space-around;
+  align-items: flex-end;*/
+  overflow: visible;
+  position: relative;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  height: 60px;
+  width: 110px;
+  font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  color: #fff;
+  text-transform: uppercase;
+  background: #d83c3c;
+  -moz-border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+.quizBtn button:hover {
+  background: #e54040;
+}
+.quizBtn button:active,
+.quizBtn button:focus {
+  background: #c42f2f;
+}
+.quizBtn button:before {
+  content: '';
+  position: absolute;
+  border-width: 8px 8px 8px 0;
+  border-style: solid solid solid none;
+  border-color: transparent #d83c3c transparent;
+  top: 10px;
+  left: -4px;
+}
+.quizBtn button:hover:before {
+  border-right-color: #e54040;
+}
+.quizBtn button:focus:before {
+  border-right-color: #c42f2f;
+}
+.quizBtn button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
 
 /* ==========================================================================
    Helper classes

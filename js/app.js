@@ -216,14 +216,13 @@
 	});
 
 // ======= Get Image to Zoom up When Hovered over ====== //
-        $(document).ready(function(){
-            $('#results').on("hover", ".beerImg", function() {
-            $(this).addClass('transition');
-            }); 
-            $('#results').on("mouseleave", ".beerImg", function() {
-            $(this).removeClass('transition');
-            });
-        });
+            
+	$('#results').on("hover", ".beerImg", function() {
+	$(this).addClass('transition');
+	}); 
+	$('#results').on("mouseleave", ".beerImg", function() {
+	$(this).removeClass('transition');
+	});
 
 /*
  <div class="s-grid-cell s-grid-cell-md-12 s-grid-top beer">
