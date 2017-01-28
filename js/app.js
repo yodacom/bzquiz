@@ -1,8 +1,5 @@
 /* eslint-env jquery */
 
-var beerList =[];
-var selectedBeer = null;
-
 // SEARCH FUNCTION
 
 	function search() {
@@ -27,7 +24,7 @@ var selectedBeer = null;
 	        // Log data
 	        console.log(data);
 
-	        $.each(beerList, function(i, item) {
+	        $.each(data.data, function(i, item) {
 
 	            if(item.nameDisplay) {
                     // Get output
@@ -136,7 +133,6 @@ var selectedBeer = null;
 		var image = result.find('.beerImage');
 
 		var a = $("<a>", {class:"beerImg"});
-		a.data("id", beerID);
 		var img = $("<img>", {src:beerPicIcon});
 		a.append(img);
 		image.append(a);
@@ -146,7 +142,7 @@ var selectedBeer = null;
 		beerDescription = beerDescription.length < 50
             ? beerDescription
             : beerDescription.substr(0, 60) + ' ... ';
-
+        
 		var description = $("<div>", {class:"beerDescription", text:beerDescription});
 		name.append(beerNameDisplay);
 		name.append(description);
@@ -155,7 +151,11 @@ var selectedBeer = null;
 		return result;
 	}
 
-// =====  Clicking the swatch and moving answer to Your Choice ======
+//  ====== Data and Output for comparison display =======
+
+
+
+// =====  Clicking the swatch and moving answer to Your Choice ====== 
 
 	$(function() {
 
@@ -205,7 +205,7 @@ var selectedBeer = null;
 	$(".modal").hide();
 });
 
-
+	var beerList =[];
 
 	const searchField = $("#query");
 
@@ -217,29 +217,17 @@ var selectedBeer = null;
 	$("#results").on("click", ".beerImg", function(e){
 		e.preventDefault();
 		var beerId = $(this).data("id");
-		selectedBeer = beerList.find(function(beer){
-		    return beer.id == beerId;
-        });
-        $('.selectedBeer').html(getOutput(selectedBeer));
-        $("#textContainer").html("");
-
 	});
 
 // ======= Get Image to Zoom up When Hovered over ====== //
-
-	$('#results').on("mouseenter", ".beerImg > img", function() {
-	    $(this).addClass('transition');
+            
+	$('#results').on("hover", ".beerImg", function() {
+	$(this).addClass('transition');
+	}); 
+	$('#results').on("mouseleave", ".beerImg", function() {
+	$(this).removeClass('transition');
 	});
-	$('#results').on("mouseleave", ".beerImg > img", function() {
-	    $(this).removeClass('transition');
-	});
 
-
-	$('#quizBtn').click(function(e){
-        $('.beerAttribute').removeClass('s-grid-cell-md-4');
-        $('.beerAttribute').addClass('s-grid-cell-md-3');
-	    $('.quizResults').show();
-    });
 /*
  <div class="s-grid-cell s-grid-cell-md-12 s-grid-top beer">
  <div class="s-grid-cell s-grid-cell-md-3 beerImage">

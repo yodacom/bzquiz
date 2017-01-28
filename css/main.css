@@ -175,6 +175,18 @@ h4.beerName {
     text-align: justify;
 }
 
+.attributeDescription {
+    text-align: justify;
+    text-align: left;
+    margin-top: 25px;
+}
+
+div.attributeDescription > h3 h4 {
+    margin-left: 20px;
+    padding: 10px;
+}
+
+
 /* ---- Search Form Styles  --- */
 .form-wrapper {
   display: flex;
@@ -288,8 +300,8 @@ h4.beerName {
   border: 0;
   padding: 0;
   cursor: pointer;
-  height: 60px;
-  width: 110px;
+  height: 40px;
+  width: 120px;
   font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
   color: #fff;
   text-transform: uppercase;
