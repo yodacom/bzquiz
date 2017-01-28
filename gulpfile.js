@@ -3,8 +3,27 @@ var gulp = require("gulp"),
 	livereload = require("gulp-livereload"),
 	uglify = require("gulp-uglify"),
 	connect = require("gulp-connect"),
-	webserver = require("gulp-webserver");
-	
+	webserver = require("gulp-webserver"),
+    browserSync = require('browser-sync').create(),
+    concat = require('gulp-concat'),
+    reload = browserSync.reload,
+    rename = require('gulp-rename'),
+    stripDebug = require('gulp-strip-debug'),
+    prefix = require('gulp-autoprefixer'),
+    nib = require('nib');
+    args   = require('yargs').argv;
+
+var serverUrl = args.proxy;
+
+
+// Confingure our directories
+var paths = {
+    js:     'js/**/*.js',
+    jsDest: 'build',
+    css:    'css',
+    styles: 'styles',
+    img:    'img',
+};
 
 // Error Log function
 function errorLog(error) {
@@ -13,38 +32,43 @@ function errorLog(error) {
 }
 
 // SCRIPTS TASKS
-//Uglifies
-
-gulp.task("scripts", function(){
-	gulp.src("./js/*.js")
+//////////////////////////////
+// Begin Script Tasks
+//////////////////////////////
+gulp.task('lint', function () {
+    return gulp.src([
+        paths.js
+    ])
+        .pipe(jshint())
+        .pipe(jshint.reporter(stylish))
+});
+gulp.task('scripts', function() {
+    return gulp.src(paths.js)
+    // Concatenate everything within the JavaScript folder.
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest(paths.jsDest))
+        .pipe(rename('scripts.min.js'))
+        // Strip all debugger code out.
+        .pipe(stripDebug())
+        // Minify the JavaScript.
         .pipe(uglify())
-        .pipe(gulp.dest("build/js"))
-		.pipe(livereload());
+        .pipe(gulp.dest(paths.jsDest));
 });
 
-// Styles Task
-gulp.task("styles", function(){
-	gulp.src("./css/stylus.styl, ./css/srmTable.styl")
-        .pipe(stylus())
-		.on("error", errorLog)
-        .pipe(gulp.dest("./css/"))
-		.pipe(livereload())
-		.pipe(connect.reload());
-});
 
-// Watch Styles Task
-gulp.task("watch:styles", function(){
-	gulp.watch("**/*.styl", ["styles"]);
-});
-
-// Watch Task
-gulp.task("watch", function(){
-	gulp.watch("./js/*.js", ["scripts"]);
-});
-
-// Live reload
-gulp.task("livereload", function() {
-	gulp.src("./css/*.css", "./js/*.js");
+//////////////////////////////
+// Stylus Tasks
+//////////////////////////////
+gulp.task('styles', function () {
+    gulp.src(paths.styles + '/*.styl')
+        .pipe(stylus({
+            paths:  ['node_modules', 'styles/globals'],
+            import: ['stylus-type-utils', 'nib'],
+            use: [nib()],
+            'include css': true
+        }))
+        .pipe(gulp.dest(paths.css))
+        .pipe(browserSync.stream());
 });
 
 // Local Dev Server
@@ -54,4 +78,28 @@ gulp.task("webserver", function() {
 	});
 });
 
-gulp.task ("default", ["scripts", "watch:styles", "webserver"]);
+//////////////////////////////
+// Autoprefixer Tasks
+//////////////////////////////
+gulp.task('prefix', function () {
+    gulp.src(paths.css + '/*.css')
+        .pipe(prefix(["last 8 version", "> 1%", "ie 8"]))
+        .pipe(gulp.dest(paths.css));
+});
+
+//////////////////////////////
+// Watch
+//////////////////////////////
+gulp.task('watch', function () {
+    gulp.watch(paths.js, [ 'scripts']);
+    gulp.watch(paths.styles + '/**/*.styl', ['styles']);
+    //gulp.watch(paths.styles + '/globals/**/*.styl', ['styles']);
+});
+
+//////////////////////////////
+// Server Tasks
+//////////////////////////////
+gulp.task('default', ['scripts', 'watch', 'prefix']);
+gulp.task('serve', ['scripts', 'styles', 'watch', 'prefix', 'webserver'])
+
+//gulp.task ("default", ["scripts", "watch:styles", "webserver"]);

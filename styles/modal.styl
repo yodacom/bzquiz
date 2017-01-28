@@ -7,8 +7,8 @@
     transform translate(-50%, -50%)
     cursor pointer
 
-// Colors to choose from 
-    
+// Colors to choose from
+
 .paleStraw
     background-color #ffff45
 
@@ -95,5 +95,47 @@
     -moz-box-shadow 1px 1px 3px #000
     -webkit-box-shadow 1px 1px 3px #000
     box-shadow 1px 1px 3px #000
-    &:hover
-        background #00d9ff
+
+    .modal {
+        position:fixed;
+        top: 0;
+        left: 0;
+        width:100%;
+        height:100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 99999;
+        display:none;
+        overflow: hidden;
+
+    }
+
+#wrapper{
+    position: fixed;
+    border-radius: 10px;
+    background: #fff;
+    top:50%;
+    left:50%;
+    width:60%;
+    height:60%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding:10px;
+}
+
+#btnClose {
+    position: absolute;
+    top:5px;
+    left:5px;
+}
+
+#contents {
+    padding: 5px;
+    overflow: scroll;
+    height:100%;
+}
+
+
+.icon{
+    border:none;
+    background: none;
+}
