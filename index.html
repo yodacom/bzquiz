@@ -24,6 +24,7 @@
         <![endif]-->
 
 <h2>BeerZap beer tasting training and quiz</h2>
+<h4> What beer are we tasting today? </h4>
 <form class="form-wrapper" id="search-form">
   <input type="search" id="query" placeholder="What beer are we tasting? " required>
   <button type="submit" id="search-btn" value="">Search</button>
@@ -46,6 +47,15 @@
     </div>
 <div class="s-grid-cell s-grid-cell-md-2"><h4>Your Choice</h4> </div>
 
+<!-- ======= Quiz Results on Submit ======== -->
+<div class="s-grid-cell s-grid-cell-md-4 hidden">
+    <div class="s-grid-top vgrid">
+        <div class="s-grid-cell s-grid-cell-md-4 title-line" id="quizResults"><h4>Comparison</h4></div>
+        <div class="s-grid-cell s-grid-cell-md-4" id="selectedBeerData"></div>
+        <div class="s-grid-cell s-grid-cell-md-4" id="compareAnswers"></div>
+    </div>
+</div>
+ 
  <!-- Begin Selections with modals, and pickers -->
 
     <!-- Begin Color Picking Section -->
@@ -73,9 +83,9 @@
 
   <div class="s-grid-cell s-grid-cell-md-6">
     <select name="beerAttributes" id="beerAttributes">
-    <option value="Stong">Strong</option>
-    <option value="Medium">Medium</option>
-    <option value="Low">Low</option>
+    <option value="Strong">Strong</option>
+    <option value="Medium" selected>Medium</option>
+    <option value="Low" selected>Low</option>
     </select>
   </div>
 
@@ -96,7 +106,7 @@
     <select id="beerBitterness">
     <option value="Strong">Strong</option>
     <option value="Medium">Medium</option>
-    <option value="Low">Low</option>
+    <option value="Low" selected>Low</option>
     </select>
   </div>
 
@@ -117,7 +127,7 @@
         <select id="alcoholContent">
     <option value="High">High</option>
     <option value="Average">Average</option>
-    <option value="Low">Low</option>
+    <option value="Low selected">Low</option>
     </select>
     </div>
 
@@ -125,6 +135,15 @@
     </div>
 
     <!-- end Alcohol section -->
+
+<div class="s-grid-cell s-grid-cell-md-12 quizBtn">
+    <div class="s-grid-cell s-grid-cell-md-4"></div>
+    <div class="s-grid-cell s-grid-cell-md-4">
+    <button class="quizBtn" type="submit" id="quizBtn" value="">Results</button>
+    </div>
+    <div class="s-grid-cell s-grid-cell-md-4"></div>
+</div>
+
 
    </div>
   </div>
@@ -142,7 +161,7 @@
 
 <p class="p">Like beer? Enjoy our next BeerZap event. Maybe be a judge?
   <a href="http://www.beerzap.com" target="_blank">When and Where</a></p>
-  <p>Created by Jeremy Black aka Yoda of <a href="http://yodacom.com" target="_blank">Yodacom.com</a></p>
+  <p>Created by Jeremy Black of <a href="http://yodacom.com" target="_blank">Yodacom.com</a></p>
 
 
 <div class="dialogs">
@@ -163,7 +182,7 @@
 <div class="templates">
     <div class="search-result s-grid-top">
         <div class="s-grid-cell s-grid-cell-md-12 s-grid-top beer">
-            <div class="s-grid-cell s-grid-cell-md-3 beerImage">
+            <div class="s-grid-cell s-grid-cell-md-3 beerImage" id="beerImage">
             </div>
             <div class="s-grid-cell s-grid-cell-md-9 beerName">
             </div>
