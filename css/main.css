@@ -124,7 +124,7 @@ body {
 }
 
 .transition {
-    -webkit-transform: scale(2.6); 
+    -webkit-transform: scale(2.6);
     -moz-transform: scale(2.6);
     -o-transform: scale(2.6);
     transform: scale(2.6);
@@ -335,7 +335,11 @@ h4.beerName {
  */
 
 .hidden {
-    display: none !important;
+    display: none;
+}
+
+.quizResults {
+    display:none;
 }
 
 /*
