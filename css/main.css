@@ -133,8 +133,6 @@ body {
 
 .transition {
     -webkit-transform: scale(2.6);
-    -moz-transform: scale(2.6);
-    -o-transform: scale(2.6);
     transform: scale(2.6);
 }
 
@@ -347,8 +345,6 @@ div.attributeDescription > h3 h4 {
   color: #fff;
   text-transform: uppercase;
   background: #d83c3c;
-  -moz-border-radius: 0 3px 3px 0;
-  -webkit-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
   text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
 }
