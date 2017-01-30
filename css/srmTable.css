@@ -1,0 +1,64 @@
+#srm p,
+#styleInfo p {
+  margin-top: 1em;
+}
+#srm table {
+  margin-top: 1em;
+  width: 48%;
+  float: left;
+}
+#srm table h4 {
+  padding: 2px 4px 2px 0;
+  background-color: #a6a6a6;
+  text-align: center;
+  font-weight: 700;
+}
+#srm td {
+  padding: 2px 4px 2px 0;
+  text-align: center;
+}
+#srm td div {
+  margin: 0 auto;
+}
+#srm th.header {
+  padding-bottom: 0;
+  background-color: #a6a6a6;
+}
+.tbl_standard {
+  margin-top: 1em;
+  width: 100%;
+}
+.tbl_standard td {
+  padding: 6px 4px 6px 2px;
+  vertical-align: top;
+}
+#srm table#leftTable,
+#statistics table#leftTable {
+  margin-right: 3%;
+}
+#srm th,
+.tbl_standard th,
+#statistics th {
+  padding: 2px 4px 2px 0;
+  background-color: #aeaeae;
+  border: 1px solid #fff;
+  border-top: none;
+  font-weight: 700;
+  text-align: center;
+}
+#srm td.gray,
+.tbl_standard tr.gray {
+  background-color: #cdcdcd;
+}
+#statistics table {
+  margin-top: 1em;
+  width: 48%;
+  float: left;
+}
+#statistics td {
+  padding: 2px 4px 2px 0;
+  text-align: left;
+}
+#statistics td.add_margin_left {
+  padding-left: 12px;
+}

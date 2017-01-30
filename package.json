@@ -12,6 +12,7 @@
     "nib": "^1.1.2",
     "s-grid": "^1.2.0",
     "stylus": "^0.54.5",
+      "stylus-type-utils": "^0.0.3",
     "vinyl-fs": "^2.4.4"
   },
   "devDependencies": {
@@ -20,6 +21,13 @@
     "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^2.0.0",
     "gulp-webserver": "^0.9.1",
-    "livereload": "^0.6.0"
+    "livereload": "^0.6.0",
+      "gulp-autoprefixer": "^2.3.1",
+      "gulp-concat": "^2.6.0",
+      "gulp-jshint": "^1.11.2",
+      "gulp-rename": "^1.2.2",
+      "gulp-sourcemaps": "^1.5.2",
+      "gulp-strip-debug": "^1.0.2",
+      "browser-sync": "^2.8.1"
   }
 }
