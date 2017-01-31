@@ -151,7 +151,6 @@ var selectedBeer = null;
 		name.append(beerNameDisplay);
 		name.append(description);
 
-
 		return result;
 	}
 
@@ -167,12 +166,13 @@ var selectedBeer = null;
 
 	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
 
+//  Hoppyness selection 
 
 	$("#beerAttributes").change(function(e) {
 	e.preventDefault();
 	var answer = $(this).val();
 	$("#selectedHoppyness").text(answer);
-});
+	});
 
 // bitterness selection
 
@@ -180,7 +180,7 @@ var selectedBeer = null;
 	e.preventDefault();
 	var answer = $(this).val();
 	$("#selectedBitterness").text(answer);
-});
+	});
 
 // Alcohol selection
 
@@ -188,8 +188,9 @@ var selectedBeer = null;
 	e.preventDefault();
 	var answer = $(this).val();
 	$("#selectedAlcohol").append(answer);
-});
+	});
 
+// ===== Modal Window functions ========
 	$(".modalTrigger").click(function(e){
 	e.preventDefault();
 	$.get("js/documents/" + $(this).data("page"))
@@ -205,7 +206,7 @@ var selectedBeer = null;
 	$(".modal").hide();
 });
 
-
+//  ===== Search form functions ===========
 
 	const searchField = $("#query");
 
