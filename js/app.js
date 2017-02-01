@@ -235,12 +235,14 @@ var selectedBeer = null;
 	    $(this).removeClass('transition');
 	});
 
+   // ===== quizButton Actions ==========  //
 
 	$('#quizBtn').click(function(e){
         $('.beerAttribute').removeClass('s-grid-cell-md-4');
         $('.beerAttribute').addClass('s-grid-cell-md-3');
 	    $('.quizResults').show();
     });
+
 /*
  <div class="s-grid-cell s-grid-cell-md-12 s-grid-top beer">
  <div class="s-grid-cell s-grid-cell-md-3 beerImage">

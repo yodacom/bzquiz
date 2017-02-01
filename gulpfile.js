@@ -60,7 +60,7 @@ gulp.task('scripts', function() {
 // Stylus Tasks
 //////////////////////////////
 gulp.task('styles', function () {
-    gulp.src(paths.styles + '/*.styl')
+    gulp.src(paths.styles + '/**/*.styl')
         .pipe(stylus({
             paths:  ['node_modules', 'styles/globals'],
             import: ['stylus-type-utils', 'nib'],
