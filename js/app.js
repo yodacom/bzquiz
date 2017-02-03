@@ -263,6 +263,7 @@ var colors = {
 	    $(this).removeClass('transition');
 	});
 
+   // ===== quizButton Actions ==========  //
 
 	$('#quizBtn').click(function(e){
         $('.beerAttribute').removeClass('s-grid-cell-md-4');
