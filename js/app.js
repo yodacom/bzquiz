@@ -26,6 +26,7 @@ var colors = {
     }
 };
 
+
 // SEARCH FUNCTION
 
 	function search() {
@@ -276,7 +277,38 @@ var colors = {
 
 });
 
+var alcoholContent = {
+    abv: {
+        "Low":[0, 3],
+        "Average":[3, 5],
+        "High":[5, 14]
+    }
+};
+
+function getAbv(value) {
+    var abvValue;
+    abvValue = Object.keys(alcoholContent.abv).find(function(a){
+        var r = alcoholContent.abv[a];
+        return value > r[0] && value <= r[1];
+    });
+    return abvValue;
+};
+
+
+
 	function compare(){
+	    var numCorrect = 0;
 	    var color = userChoices.color.srm.includes(selectedBeer.srm.id);
 	    $('#comparisonColor').text(color?'Correct':'Wrong');
+        numCorrect += color?1:0;
+
+	    var selectedAbv = selectedBeer.abv;
+	    var abvValue = getAbv(selectedAbv);
+	    var alcohol = userChoices.alcohol == abvValue;
+	    numCorrect += alcohol?1:0;
+
+	    $('#comparisonAlcohol').text(alcohol?'Correct':'Wrong');
+
+	    console.log(numCorrect);
+
     }
