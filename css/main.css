@@ -98,7 +98,7 @@ body {
     max-width: 900px;
 }
 
-<!-- Begin Quiz Wrapper Styles -->
+/*Begin Quiz Wrapper Styles*/
 .p {
   padding-top: 130px;
   font-size: 23px;
@@ -171,10 +171,6 @@ li {
 
 h4.beerName {
     text-align: left;
-}
-
-.background-for-chosen-color {
-
 }
 
 .beerDescription {
