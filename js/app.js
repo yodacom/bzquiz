@@ -44,7 +44,7 @@ function search() {
 
 	var beerData = {
 	        q:q
-		};
+	};
 
 	var success = function(data) {
 	        beerList = data.data;
@@ -68,7 +68,7 @@ function search() {
              // Display buttons
              //$("#buttons").append(buttons);
 
-		};
+	};
 	$.get(url,beerData,success);
 
 }
@@ -183,23 +183,23 @@ function getOutput(item) {
 $(function() {
 
 	$("#contents").on("click", ".swatch", function(){
-			var srm = $(this).data("color");
-			var color = colors[srm];
-			$("#selectedColor").html($("<div>", {class:color.style, text:color.name}));
-			$(".modal").hide();
-			userChoices.color = color;
-		});
+		var srm = $(this).data("color");
+		var color = colors[srm];
+		$("#selectedColor").html($("<div>", {class:color.style, text:color.name}));
+		$(".modal").hide();
+		userChoices.color = color;
+	});
 
 	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
 
 //  Hoppyness selection
 
 	$("#beerAttributes").change(function(e) {
-			e.preventDefault();
+		e.preventDefault();
 	    var answer = $(this).val();
 	    $("#selectedHoppyness").text(answer);
 	    userChoices.hoppyness = answer;
-		});
+	});
 
 // bitterness selection
 
@@ -208,7 +208,7 @@ $(function() {
 	    var answer = $(this).val();
 	    $("#selectedBitterness").text(answer);
 	    userChoices.bitterness = answer;
-		});
+	});
 
 // Alcohol selection
 
@@ -217,63 +217,63 @@ $(function() {
 	    var answer = $(this).val();
 	    $("#selectedAlcohol").append(answer);
 	    userChoices.alcohol = answer;
-		});
+	});
 
 // ===== Modal Window functions ========
 	$(".modalTrigger").click(function(e){
-			e.preventDefault();
-			$.get("js/documents/" + $(this).data("page"))
+		e.preventDefault();
+		$.get("js/documents/" + $(this).data("page"))
         .success(function(data){
 	        $("#contents").html(data);
 });
-			$(".modal").show();
-		});
+		$(".modal").show();
+	});
 
 	$(".dialogs").on("click", "#btnClose", function(e){
-			e.preventDefault();
-			console.log("Close the modal");
-			$(".modal").hide();
-		});
+		e.preventDefault();
+		console.log("Close the modal");
+		$(".modal").hide();
+	});
 
 //  ===== Search form functions ===========
 
 	const searchField = $("#query");
 
 	$("#search-form").submit(function(e) {
-			e.preventDefault();
-			search();
-		});
+		e.preventDefault();
+		search();
+	});
 
 	$("#results").on("click", ".beerImg", function(e){
-			e.preventDefault();
-			var beerId = $(this).data("id");
-			selectedBeer = beerList.find(function(beer){
+		e.preventDefault();
+		var beerId = $(this).data("id");
+		selectedBeer = beerList.find(function(beer){
 		    return beer.id == beerId;
-		});
-			$(".selectedBeer").html(getOutput(selectedBeer));
-			$("#textContainer").html("");
+			});
+		$(".selectedBeer").html(getOutput(selectedBeer));
+		$("#textContainer").html("");
 
-		});
+	});
 
 // ======= Get Image to Zoom up When Hovered over ====== //
 
 	$("#results").on("mouseenter", ".beerImg > img", function() {
 	    $(this).addClass("transition");
-		});
+	});
 	$("#results").on("mouseleave", ".beerImg > img", function() {
 	    $(this).removeClass("transition");
-		});
+	});
 
    // ===== quizButton Actions ==========  //
 
 	$("#quizBtn").click(function(e){
-			$(".beerAttribute").removeClass("s-grid-cell-md-4");
-			$(".beerAttribute").addClass("s-grid-cell-md-3");
+		$(".beerAttribute").removeClass("s-grid-cell-md-4");
+		$(".beerAttribute").addClass("s-grid-cell-md-3");
 	    $(".quizResults").show();
 	    console.log("The selected beer:", selectedBeer);
 	    console.log("The users choices", userChoices);
 	    compare();
-		});
+	});
 
 });
 
@@ -300,7 +300,7 @@ function getAbv(value) {
 		return value > r[0] && value <= r[1];
 	});
 	return abvValue;
-};
+}
 
 function getIbu(value) {
 	var ibuValue;
@@ -309,7 +309,7 @@ function getIbu(value) {
 		return value > r[0] && value <= r[1];
 	});
 	return ibuValue;
-};
+}
 
 // compare Results
 
