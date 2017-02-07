@@ -20,10 +20,56 @@ var colors = {
 		style:"straw"
 	},
 	4:{
-		srm:[4, 5, 6],
+		srm:[4, 5],
 		name:"Pale Gold",
 		style:"paleGold"
+	},
+	6:{
+		srm:[6,7,8],
+		name:"Deep Gold",
+		style:"deepGold"
+	},
+	9:{
+		srm:[9,10,11],
+		name:"Pale Amber",
+		style:"paleAmber"
+	},
+	12:{
+		srm:[12,13,14],
+		name:"Medium Amber",
+		style:"mediumAmber"
+	},
+	15:{
+		srm:[15,16,17],
+		name:"Deep Amber",
+		style:"deepAmber"
+	},
+	18:{
+		srm:[18,19],
+		name:"Amber Brown",
+		style:"amberBrown"
+	},
+	20:{
+		srm:[20,21,22,23],
+		name:"Brown",
+		style:"brown"
+	},
+	24:{
+		srm:[24,25,26,27,28,29],
+		name:"Ruby Brown",
+		style:"rubyBrown"
+	},
+	30:{
+		srm:[30,31,32,33,34,35,36,37,38,39],
+		name:"Deep Brown",
+		style:"deepBrown"
+	},
+	40:{
+		srm:[40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90],
+		name:"Black",
+		style:"black"
 	}
+
 };
 
 // SEARCH FUNCTION
