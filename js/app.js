@@ -185,9 +185,10 @@ var selectedBeer = null;
 // Alcohol selection
 
 	$("#alcoholContent").change(function(e) {
-	e.preventDefault();
-	var answer = $(this).val();
-	$("#selectedAlcohol").append(answer);
+	    e.preventDefault();
+	    var answer = $(this).val();
+	    $("#selectedAlcohol").text(answer);
+	    userChoices.alcohol = answer;
 	});
 
 // ===== Modal Window functions ========
