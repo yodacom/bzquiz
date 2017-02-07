@@ -332,8 +332,8 @@ var alcoholContent = {
 
 var bitternessContent = {
 	ibu: {
-		"low":[0, 30 ],
-		"Average":[31, 70 ],
+		"low":[0, 30],
+		"Average":[31, 70],
 		"High":[71, 2500]
 	}
 };
@@ -354,6 +354,7 @@ function getIbu(value) {
 		return value > r[0] && value <= r[1];
 	});
 	return ibuValue;
+	console.log(ibuValue);
 }
 
 // compare Results
