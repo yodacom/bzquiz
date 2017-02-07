@@ -303,7 +303,7 @@ function getAbv(value) {
 
 function getIbu(value) {
 	var ibuValue;
-	ibuValue = Object.keys(bitterness.ibu).find(function(a){
+	ibuValue = Object.keys(bitternessContent.ibu).find(function(a){
 		var r = bitternessContent.ibu[a];
 		return value > r[0] && value <= r[1];
 	});
