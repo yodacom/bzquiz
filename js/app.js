@@ -2,6 +2,7 @@
 
 var beerList =[];
 var selectedBeer = null;
+var userChoices = "";
 
 // SEARCH FUNCTION
 
