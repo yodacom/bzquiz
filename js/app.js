@@ -354,7 +354,7 @@ function getIbu(value) {
 		return value > r[0] && value <= r[1];
 	});
 	return ibuValue;
-	console.log(ibuValue);
+	console.log(bitternessContent.ibu);
 }
 
 // compare Results
