@@ -332,9 +332,18 @@ var alcoholContent = {
 
 var bitternessContent = {
 	ibu: {
-		"low":[0, 30],
-		"Average":[31, 70],
-		"High":[71, 2500]
+		"Low":[0, 30],
+		"Medium":[31, 70],
+		"Strong":[71, 2500]
+	}
+};
+
+var hoppinessContent = {
+	// bzh is the beerzap hoppiness scale since there is not a formal scale for this
+	bzh: {
+		"Low":[0, 3],
+		"Medium":[4, 6],
+		"Strong":[7, 10]
 	}
 };
 
@@ -354,30 +363,47 @@ function getIbu(value) {
 		return value > r[0] && value <= r[1];
 	});
 	return ibuValue;
-	console.log(bitternessContent.ibu);
 }
+
+var bzhValue = "Medium"
+// function getBzh(value) {
+// 	var bzhValue = "* Correct";
+// 	// var bzhValue = Object.keys(hoppinessContent.bzh).find(function(a) {
+// 	// 	var r = bzhContent.bzh[a];
+// 	// 	return value > r[0] && value <= r[1];
+// 	// });
+// 	return bzhValue;
+// }
 
 // compare Results
 
 function compare(){
 	    var numCorrect = 0;
+		
+	// color compare
 	    var color = userChoices.color.srm.includes(selectedBeer.srm.id);
 	    $("#comparisonColor").text(color?"Correct":"Wrong");
 	numCorrect += color?1:0;
 
+	// alcohol compare
 	    var selectedAbv = selectedBeer.abv;
 	    var abvValue = getAbv(selectedAbv);
 	    var alcohol = userChoices.alcohol == abvValue;
 	    numCorrect += alcohol?1:0;
-
 	    $("#comparisonAlcohol").text(alcohol?"Correct":"Wrong");
 
+	// Bitterness Compare
 	var selectedIbu = selectedBeer.ibu;
 	    var ibuValue = getIbu(selectedIbu);
 	    var bitterness = userChoices.bitterness == ibuValue;
 	    numCorrect += bitterness?1:0;
-
 	    $("#comparisonBitterness").text(bitterness?"Correct":"Wrong");
+	
+	// Hoppyness Compare
+		var selectedBzh = selectedBzh;
+		var hoppyness = userChoices.hoppyness == bzhValue;
+		numCorrect += hoppyness?0:0;
+		$("#comparisonHoppyness").text(hoppyness?"* Always Correct":"* Always Correct")
 
 	    console.log(numCorrect);
 
