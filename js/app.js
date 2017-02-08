@@ -403,7 +403,7 @@ function compare(){
 		var selectedBzh = selectedBzh;
 		var hoppyness = userChoices.hoppyness == bzhValue;
 		numCorrect += hoppyness?0:0;
-		$("#comparisonHoppyness").text(hoppyness?"* Always Correct":"* Always Correct")
+		$("#comparisonHoppyness").text(hoppyness?"* Recorded":"* Recorded")
 
 	    console.log(numCorrect);
 
