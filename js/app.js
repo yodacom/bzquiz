@@ -297,6 +297,7 @@ $(function() {
 			});
 		$(".selectedBeer").html(getOutput(selectedBeer));
 		$("#textContainer").html("");
+		$(".quizBtn").prop("disabled",false);
 
 	});
 
@@ -406,5 +407,30 @@ function compare(){
 		$("#comparisonHoppyness").text(hoppyness?"* Recorded":"* Recorded")
 
 	    console.log(numCorrect);
+		quizFinalResults(numCorrect);
+}
+	
+	// Calculate Results and show text
 
+	function quizFinalResults (numCorrect) {
+		if (numCorrect == 0) {
+			$.get("./js/documents/keepTasting.html", function (data){
+				$("#resultsText").html(data);
+			});
+			
+		} else if (numCorrect == 1) {
+			$.get("./js/documents/gettingThere.html", function (data){
+				$("#resultsText").html(data);
+			})
+		}
+			else if (numCorrect == 2) {		
+			$.get("./js/documents/gettingThere.html" , function (data){
+				$("#resultsText").html(data);
+			});
+			}
+			else { 
+			$.get("./js/documents/youWin.html", function (data){
+				$("#resultsText").html(data);
+			})
+	}
 }
