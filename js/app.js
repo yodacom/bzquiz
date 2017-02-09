@@ -1,30 +1,7 @@
-/* eslint-env jquery */
+require('../styles/main.styl');
+var $ = require('jquery');
 
-var beerList =[];
-var selectedBeer = null;
-var userChoices = {
-	color:null,
-	bitterness:null,
-	alcohol:null,
-	hoppyness:null
-};
-var colors = {
-	2:{
-		srm:[1, 2],
-		name:"Pale Straw",
-		style:"paleStraw"
-	},
-	3:{
-		srm:[3],
-		name:"straw",
-		style:"straw"
-	},
-	4:{
-		srm:[4, 5, 6],
-		name:"Pale Gold",
-		style:"paleGold"
-	}
-};
+
 
 
 // SEARCH FUNCTION
@@ -182,7 +159,34 @@ function getOutput(item) {
 
 $(function() {
 
-	$("#contents").on("click", ".swatch", function(){
+    var beerList =[];
+    var selectedBeer = null;
+    var userChoices = {
+        color:null,
+        bitterness:null,
+        alcohol:null,
+        hoppyness:null
+    };
+    var colors = {
+        2:{
+            srm:[1, 2],
+            name:"Pale Straw",
+            style:"paleStraw"
+        },
+        3:{
+            srm:[3],
+            name:"straw",
+            style:"straw"
+        },
+        4:{
+            srm:[4, 5, 6],
+            name:"Pale Gold",
+            style:"paleGold"
+        }
+    };
+
+
+    $("#contents").on("click", ".swatch", function(){
 		var srm = $(this).data("color");
 		var color = colors[srm];
 		$("#selectedColor").html($("<div>", {class:color.style, text:color.name}));
@@ -223,7 +227,7 @@ $(function() {
 	$(".modalTrigger").click(function(e){
 		e.preventDefault();
 		$.get("js/documents/" + $(this).data("page"))
-        .success(function(data){
+        .done(function(data){
 	        $("#contents").html(data);
 });
 		$(".modal").show();
@@ -235,7 +239,7 @@ $(function() {
 		$(".modal").hide();
 	});
 
-//  ===== Search form functions ===========
+//  ===== Search form functions ==========
 
 	const searchField = $("#query");
 
