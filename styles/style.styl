@@ -91,6 +91,75 @@ body
         +above(rem-calc(breakpoints[xxlg]))
             cell(1, 6)
 
+
+// ======= Results Text and Modal ==============
+.resultsComment
+    width: auto
+    height: auto
+    p
+        padding: 5px 0;
+        font-size: 14px;
+        letter-spacing: 1px;
+        line-height: 1.3em;
+    hr
+        width: 100%
+        height: 1px
+        background-color: #FFFFFF
+        border: none
+
+    h2
+        font-size: 30px
+        text-transform: uppercase
+        letter-spacing: 5px
+        text-align: center
+
+form 
+    display:flex;
+    align-items: center;
+
+.modal-2
+    width: 500px
+    padding:0px 30px 30px 30px
+    background: #FFA644
+    border-radius: 5px 5px 5px 5px
+
+.input
+    width: 75%
+    height: 44px
+    background: #FDFCFB
+    border-radius: 5px 0px 0px 5px
+    border: none
+    font-family: 'Lato', sans-serif
+    color: #737373
+    letter-spacing: 1px
+    text-indent: 5%
+
+.buttonModal
+    width: 25%
+    height: 46px
+    background-color: #E54661
+    border: none
+    border-radius: 0px 5px 5px 0px
+    font-family: 'Lato', sans-serif
+    font-weight: bold
+    color: inherit
+    letter-spacing: 1px
+    cursor: pointer
+
+.overlay
+    // width: 100vw
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    // background-color: rgba(0, 0, 0, .7)
+
+
+.footnote
+    padding: 5px 75px 5px 75px;
+    text-align:center;
+    margin:auto;
+
 // ========  FORM STYL ================
 
 .form-wrapper
@@ -176,6 +245,7 @@ body
         &::-moz-focus-inner
             border 0
             padding 0
+        
 
 .form-wrapper button:active, .form-wrapper button:focus
     background #c42f2f

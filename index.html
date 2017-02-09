@@ -12,6 +12,14 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+<<<<<<< HEAD
+=======
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/modal.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+>>>>>>> feb7
         <script src="https://use.fontawesome.com/96fe5c4022.js"></script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
@@ -51,7 +59,7 @@
 
 <!-- begin Choose Beer Attributes -->
 <div class="s-grid-cell s-grid-cell-md-6">
-    <div class="s-grid-top vgrid">
+    <div class="s-grid-bottom vgrid">
         <div class="s-grid-cell s-grid-cell-md-4 title-line beerAttribute">
             <h4>Beer Attribute</h4>
         </div>
@@ -134,7 +142,7 @@
         <!-- End Bitterness Section -->
 
         <!-- Begin Alcohol section -->
-        <div class="s-grid-cell s-grid-cell-md-4 beerAttribute">Alcohol Content
+        <div class="s-grid-cell s-grid-cell-md-4 beerAttribute">Alcohol Level
             <!--open description in modal window when click on icon-->
             <button data-page="alcohol.html" class="modalTrigger icon">
                 <i class="fa fa-question-circle-o" aria-hidden="true"></i>
@@ -160,6 +168,7 @@
 
         <!-- end Alcohol section -->
 
+        <!-- Get Results Button -->
         <div class="s-grid-cell s-grid-cell-md-12 quizBtn">
             <div class="s-grid-cell s-grid-cell-md-4"></div>
             <div class="s-grid-cell s-grid-cell-md-4">
@@ -167,12 +176,16 @@
             </div>
             <div class="s-grid-cell s-grid-cell-md-4"></div>
         </div>
-
-
+        <!-- End Get Results Button -->
+        <div class="s-grid-cell s-grid-cell-md-12 resultsText" id="resultsText">Beer "Meister"" or Beer "Triffler" ?</div>
     </div>
-</div>
+
 </div>
 
+<p class="footnote">*We will start recording peoples percieved hoppyness ratings relative to the bitterness IBU scale, and see what that reveals over time.
+     <a data-page="hoppyness.html" class="modalTrigger icon">
+                <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </a>Stay tuned.</p>
 
 <p class="p">Like beer? Enjoy our next BeerZap event. Maybe be a judge?
     <a href="http://www.beerzap.com" target="_blank">When and Where</a></p>

@@ -2,8 +2,6 @@ require('../styles/main.styl');
 var $ = require('jquery');
 
 
-
-
 // SEARCH FUNCTION
 
 function search() {
@@ -168,20 +166,65 @@ $(function() {
         hoppyness:null
     };
     var colors = {
-        2:{
-            srm:[1, 2],
-            name:"Pale Straw",
-            style:"paleStraw"
+        2: {
+            srm: [1, 2],
+            name: "Pale Straw",
+            style: "paleStraw"
         },
-        3:{
-            srm:[3],
-            name:"straw",
-            style:"straw"
+        3: {
+            srm: [3],
+            name: "straw",
+            style: "straw"
         },
-        4:{
-            srm:[4, 5, 6],
-            name:"Pale Gold",
-            style:"paleGold"
+        4: {
+            srm: [4, 5],
+            name: "Pale Gold",
+            style: "paleGold"
+        },
+        6: {
+            srm: [6, 7, 8],
+            name: "Deep Gold",
+            style: "deepGold"
+        },
+        9: {
+            srm: [9, 10, 11],
+            name: "Pale Amber",
+            style: "paleAmber"
+        },
+        12: {
+            srm: [12, 13, 14],
+            name: "Medium Amber",
+            style: "mediumAmber"
+        },
+        15: {
+            srm: [15, 16, 17],
+            name: "Deep Amber",
+            style: "deepAmber"
+        },
+        18: {
+            srm: [18, 19],
+            name: "Amber Brown",
+            style: "amberBrown"
+        },
+        20: {
+            srm: [20, 21, 22, 23],
+            name: "Brown",
+            style: "brown"
+        },
+        24: {
+            srm: [24, 25, 26, 27, 28, 29],
+            name: "Ruby Brown",
+            style: "rubyBrown"
+        },
+        30: {
+            srm: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+            name: "Deep Brown",
+            style: "deepBrown"
+        },
+        40: {
+            srm: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
+            name: "Black",
+            style: "black"
         }
     };
 
@@ -219,7 +262,7 @@ $(function() {
 	$("#alcoholContent").change(function(e) {
 	    e.preventDefault();
 	    var answer = $(this).val();
-	    $("#selectedAlcohol").append(answer);
+	    $("#selectedAlcohol").text(answer);
 	    userChoices.alcohol = answer;
 	});
 
@@ -256,6 +299,7 @@ $(function() {
 			});
 		$(".selectedBeer").html(getOutput(selectedBeer));
 		$("#textContainer").html("");
+		$(".quizBtn").prop("disabled",false);
 
 	});
 
@@ -291,9 +335,18 @@ var alcoholContent = {
 
 var bitternessContent = {
 	ibu: {
-		"low":[0, 30 ],
-		"Average":[31, 70 ],
-		"High":[71, 2500]
+		"Low":[0, 30],
+		"Medium":[31, 70],
+		"Strong":[71, 2500]
+	}
+};
+
+var hoppinessContent = {
+	// bzh is the beerzap hoppiness scale since there is not a formal scale for this
+	bzh: {
+		"Low":[0, 3],
+		"Medium":[4, 6],
+		"Strong":[7, 10]
 	}
 };
 
@@ -308,35 +361,78 @@ function getAbv(value) {
 
 function getIbu(value) {
 	var ibuValue;
-	ibuValue = Object.keys(bitterness.ibu).find(function(a){
+	ibuValue = Object.keys(bitternessContent.ibu).find(function(a){
 		var r = bitternessContent.ibu[a];
 		return value > r[0] && value <= r[1];
 	});
 	return ibuValue;
 }
 
+var bzhValue = "Medium"
+// function getBzh(value) {
+// 	var bzhValue = "* Correct";
+// 	// var bzhValue = Object.keys(hoppinessContent.bzh).find(function(a) {
+// 	// 	var r = bzhContent.bzh[a];
+// 	// 	return value > r[0] && value <= r[1];
+// 	// });
+// 	return bzhValue;
+// }
+
 // compare Results
 
 function compare(){
 	    var numCorrect = 0;
+
+	// color compare
 	    var color = userChoices.color.srm.includes(selectedBeer.srm.id);
 	    $("#comparisonColor").text(color?"Correct":"Wrong");
 	numCorrect += color?1:0;
 
+	// alcohol compare
 	    var selectedAbv = selectedBeer.abv;
 	    var abvValue = getAbv(selectedAbv);
 	    var alcohol = userChoices.alcohol == abvValue;
 	    numCorrect += alcohol?1:0;
-
 	    $("#comparisonAlcohol").text(alcohol?"Correct":"Wrong");
 
+	// Bitterness Compare
 	var selectedIbu = selectedBeer.ibu;
 	    var ibuValue = getIbu(selectedIbu);
 	    var bitterness = userChoices.bitterness == ibuValue;
 	    numCorrect += bitterness?1:0;
-
 	    $("#comparisonBitterness").text(bitterness?"Correct":"Wrong");
 
-	    console.log(numCorrect);
+	// Hoppyness Compare
+		var selectedBzh = selectedBzh;
+		var hoppyness = userChoices.hoppyness == bzhValue;
+		numCorrect += hoppyness?0:0;
+		$("#comparisonHoppyness").text(hoppyness?"* Recorded":"* Recorded")
 
+	    console.log(numCorrect);
+		quizFinalResults(numCorrect);
+}
+
+	// Calculate Results and show text
+
+	function quizFinalResults (numCorrect) {
+		if (numCorrect == 0) {
+			$.get("./js/documents/keepTasting.html", function (data){
+				$("#resultsText").html(data);
+			});
+
+		} else if (numCorrect == 1) {
+			$.get("./js/documents/gettingThere.html", function (data){
+				$("#resultsText").html(data);
+			})
+		}
+			else if (numCorrect == 2) {
+			$.get("./js/documents/gettingThere.html" , function (data){
+				$("#resultsText").html(data);
+			});
+			}
+			else {
+			$.get("./js/documents/youWin.html", function (data){
+				$("#resultsText").html(data);
+			})
+	}
 }

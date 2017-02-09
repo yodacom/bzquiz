@@ -370,6 +370,9 @@ div.attributeDescription > h3 h4 {
   border: 0;
   padding: 0;
 }
+.quizBtn:disabled {
+    background-color: #aaaaaa;
+}
 
 /* ==========================================================================
    Helper classes
