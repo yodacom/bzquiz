@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "start": "node_modules/.bin/webpack-dev-server"
+    "start": "node_modules/.bin/webpack-dev-server --hot"
   },
   "dependencies": {
     "autoprefixer-stylus": "^0.13.0",

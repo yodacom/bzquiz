@@ -156,6 +156,7 @@ function getOutput(item) {
 // =====  Clicking the swatch and moving answer to Your Choice ======
 
 $(function() {
+    alert("Hello");
 
     var beerList =[];
     var selectedBeer = null;
