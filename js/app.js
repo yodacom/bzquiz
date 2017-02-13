@@ -1,75 +1,75 @@
-require('../styles/main.styl');
-var $ = require('jquery');
+require("../styles/main.styl");
+var $ = require("jquery");
 
 var beerList =[];
 var selectedBeer = null;
 var userChoices = {
-    color:null,
-    bitterness:null,
-    alcohol:null,
-    hoppyness:null
+	color:null,
+	bitterness:null,
+	alcohol:null,
+	hoppyness:null
 };
 var colors = {
-    2: {
-        srm: [1, 2],
-        name: "Pale Straw",
-        style: "paleStraw"
-    },
-    3: {
-        srm: [3],
-        name: "straw",
-        style: "straw"
-    },
-    4: {
-        srm: [4, 5],
-        name: "Pale Gold",
-        style: "paleGold"
-    },
-    6: {
-        srm: [6, 7, 8],
-        name: "Deep Gold",
-        style: "deepGold"
-    },
-    9: {
-        srm: [9, 10, 11],
-        name: "Pale Amber",
-        style: "paleAmber"
-    },
-    12: {
-        srm: [12, 13, 14],
-        name: "Medium Amber",
-        style: "mediumAmber"
-    },
-    15: {
-        srm: [15, 16, 17],
-        name: "Deep Amber",
-        style: "deepAmber"
-    },
-    18: {
-        srm: [18, 19],
-        name: "Amber Brown",
-        style: "amberBrown"
-    },
-    20: {
-        srm: [20, 21, 22, 23],
-        name: "Brown",
-        style: "brown"
-    },
-    24: {
-        srm: [24, 25, 26, 27, 28, 29],
-        name: "Ruby Brown",
-        style: "rubyBrown"
-    },
-    30: {
-        srm: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
-        name: "Deep Brown",
-        style: "deepBrown"
-    },
-    40: {
-        srm: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
-        name: "Black",
-        style: "black"
-    }
+	2: {
+		srm: [1, 2],
+		name: "Pale Straw",
+		style: "paleStraw"
+	},
+	3: {
+		srm: [3],
+		name: "straw",
+		style: "straw"
+	},
+	4: {
+		srm: [4, 5],
+		name: "Pale Gold",
+		style: "paleGold"
+	},
+	6: {
+		srm: [6, 7, 8],
+		name: "Deep Gold",
+		style: "deepGold"
+	},
+	9: {
+		srm: [9, 10, 11],
+		name: "Pale Amber",
+		style: "paleAmber"
+	},
+	12: {
+		srm: [12, 13, 14],
+		name: "Medium Amber",
+		style: "mediumAmber"
+	},
+	15: {
+		srm: [15, 16, 17],
+		name: "Deep Amber",
+		style: "deepAmber"
+	},
+	18: {
+		srm: [18, 19],
+		name: "Amber Brown",
+		style: "amberBrown"
+	},
+	20: {
+		srm: [20, 21, 22, 23],
+		name: "Brown",
+		style: "brown"
+	},
+	24: {
+		srm: [24, 25, 26, 27, 28, 29],
+		name: "Ruby Brown",
+		style: "rubyBrown"
+	},
+	30: {
+		srm: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+		name: "Deep Brown",
+		style: "deepBrown"
+	},
+	40: {
+		srm: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
+		name: "Black",
+		style: "black"
+	}
 };
 
 
@@ -83,33 +83,32 @@ function search() {
 	$("#buttons").html("");
 
 
-	    //get data from form
+	//get data from form
 	q = $("#query").val();
 
-
-	    //Get Request FROM API
+	//Get Request FROM API
 	var url = "http://localhost:3000/beers";
 
 	var beerData = {
-	        q:q
+		q:q
 	};
 
 	var success = function(data) {
-	        beerList = data.data;
-	        // Log data
-	        console.log(data);
+		beerList = data.data;
+	// Log data
+		console.log(data);
 
-	        $.each(beerList, function(i, item) {
+		$.each(beerList, function(i, item) {
 
-	            if(item.nameDisplay) {
+			if(item.nameDisplay) {
                     // Get output
-		var output = getOutput(item);
+				var output = getOutput(item);
 
                     // Display results
-		$("#textContainer").append(output);
-	}
+				$("#textContainer").append(output);
+			}
 
-	        });
+		});
 
              //var buttons = getButtons(prePageToken, nextPageToken);
 
@@ -230,13 +229,13 @@ function getOutput(item) {
 
 $(function() {
 
-    $("#contents").on("click", ".swatch", function(){
-        var srm = $(this).data("color");
-        var color = colors[srm];
-        $("#selectedColor").html($("<div>", {class:color.style, text:color.name}));
-        $(".modal").hide();
-        userChoices.color = color;
-    });
+	$("#contents").on("click", ".swatch", function(){
+		var srm = $(this).data("color");
+		var color = colors[srm];
+		$("#selectedColor").html($("<div>", {class:color.style, text:color.name}));
+		$(".modal").hide();
+		userChoices.color = color;
+	});
 
 	// ADDING SELECTED OPTION TO 'YOUR CHOICE' COLUMN
 
@@ -244,27 +243,27 @@ $(function() {
 
 	$("#beerAttributes").change(function(e) {
 		e.preventDefault();
-	    var answer = $(this).val();
-	    $("#selectedHoppyness").text(answer);
-	    userChoices.hoppyness = answer;
+		var answer = $(this).val();
+		$("#selectedHoppyness").text(answer);
+		userChoices.hoppyness = answer;
 	});
 
 // bitterness selection
 
 	$("#beerBitterness").change(function(e) {
-	    e.preventDefault();
-	    var answer = $(this).val();
-	    $("#selectedBitterness").text(answer);
-	    userChoices.bitterness = answer;
+		e.preventDefault();
+		var answer = $(this).val();
+		$("#selectedBitterness").text(answer);
+		userChoices.bitterness = answer;
 	});
 
 // Alcohol selection
 
 	$("#alcoholContent").change(function(e) {
-	    e.preventDefault();
-	    var answer = $(this).val();
-	    $("#selectedAlcohol").text(answer);
-	    userChoices.alcohol = answer;
+		e.preventDefault();
+		var answer = $(this).val();
+		$("#selectedAlcohol").text(answer);
+		userChoices.alcohol = answer;
 	});
 
 // ===== Modal Window functions ========
@@ -272,7 +271,7 @@ $(function() {
 		e.preventDefault();
 		$.get("js/documents/" + $(this).data("page"))
         .done(function(data){
-	        $("#contents").html(data);
+	$("#contents").html(data);
 });
 		$(".modal").show();
 	});
@@ -296,8 +295,8 @@ $(function() {
 		e.preventDefault();
 		var beerId = $(this).data("id");
 		selectedBeer = beerList.find(function(beer){
-		    return beer.id == beerId;
-			});
+			return beer.id === beerId;
+		});
 		$(".selectedBeer").html(getOutput(selectedBeer));
 		$("#textContainer").html("");
 		$(".quizBtn").prop("disabled",false);
@@ -307,10 +306,10 @@ $(function() {
 // ======= Get Image to Zoom up When Hovered over ====== //
 
 	$("#results").on("mouseenter", ".beerImg > img", function() {
-	    $(this).addClass("transition");
+		$(this).addClass("transition");
 	});
 	$("#results").on("mouseleave", ".beerImg > img", function() {
-	    $(this).removeClass("transition");
+		$(this).removeClass("transition");
 	});
 
    // ===== quizButton Actions ==========  //
@@ -318,10 +317,10 @@ $(function() {
 	$("#quizBtn").click(function(e){
 		$(".beerAttribute").removeClass("s-grid-cell-md-4");
 		$(".beerAttribute").addClass("s-grid-cell-md-3");
-	    $(".quizResults").show();
-	    console.log("The selected beer:", selectedBeer);
-	    console.log("The users choices", userChoices);
-	    compare();
+		$(".quizResults").show();
+		console.log("The selected beer:", selectedBeer);
+		console.log("The users choices", userChoices);
+		compare();
 	});
 
 });
@@ -369,7 +368,7 @@ function getIbu(value) {
 	return ibuValue;
 }
 
-var bzhValue = "Medium"
+var bzhValue = "Medium";
 // function getBzh(value) {
 // 	var bzhValue = "* Correct";
 // 	// var bzhValue = Object.keys(hoppinessContent.bzh).find(function(a) {
@@ -382,58 +381,62 @@ var bzhValue = "Medium"
 // compare Results
 
 function compare(){
-	    var numCorrect = 0;
+	var numCorrect = 0;
 
 	// color compare
-	    var color = userChoices.color.srm.includes(selectedBeer.srm.id);
-	    $("#comparisonColor").text(color?"Correct":"Wrong");
+	var color = userChoices.color.srm.includes(selectedBeer.srm.id);
+	$("#comparisonColor").text(color?"Correct":"Wrong");
 	numCorrect += color?1:0;
 
 	// alcohol compare
-	    var selectedAbv = selectedBeer.abv;
-	    var abvValue = getAbv(selectedAbv);
-	    var alcohol = userChoices.alcohol == abvValue;
-	    numCorrect += alcohol?1:0;
-	    $("#comparisonAlcohol").text(alcohol?"Correct":"Wrong");
+	var selectedAbv = selectedBeer.abv;
+	var abvValue = getAbv(selectedAbv);
+	var alcohol = userChoices.alcohol == abvValue;
+	numCorrect += alcohol?1:0;
+	$("#comparisonAlcohol").text(alcohol?"Correct":"Wrong");
 
 	// Bitterness Compare
 	var selectedIbu = selectedBeer.ibu;
-	    var ibuValue = getIbu(selectedIbu);
-	    var bitterness = userChoices.bitterness == ibuValue;
-	    numCorrect += bitterness?1:0;
-	    $("#comparisonBitterness").text(bitterness?"Correct":"Wrong");
-
+	if (selectedIbu){
+		var ibuValue = getIbu(selectedIbu);
+		var bitterness = userChoices.bitterness == ibuValue;
+		numCorrect += bitterness?1:0;
+		$("#comparisonBitterness").text(bitterness?"Correct":"Wrong");
+	} else {
+		numCorrect++;
+		$("#comparisonBitterness").text("Not Provided");
+	}
 	// Hoppyness Compare
-		var selectedBzh = selectedBzh;
-		var hoppyness = userChoices.hoppyness == bzhValue;
-		numCorrect += hoppyness?0:0;
-		$("#comparisonHoppyness").text(hoppyness?"* Recorded":"* Recorded")
+	var selectedBzh = selectedBzh;
+	var hoppyness = userChoices.hoppyness == bzhValue;
+	numCorrect += hoppyness?0:0;
+	$("#comparisonHoppyness").text(hoppyness?"* Recorded":"* Recorded");
 
 	    console.log(numCorrect);
-		quizFinalResults(numCorrect);
+	quizFinalResults(numCorrect);
 }
 
 	// Calculate Results and show text
 
-	function quizFinalResults (numCorrect) {
-		if (numCorrect == 0) {
-			$.get("./js/documents/keepTasting.html", function (data){
-				$("#resultsText").html(data);
-			});
+function quizFinalResults (numCorrect) {
+	if (numCorrect == 0) {
+		$.get("./js/documents/keepTasting.html", function (data){
+			$("#resultsText").html(data);
+		});
 
-		} else if (numCorrect == 1) {
-			$.get("./js/documents/gettingThere.html", function (data){
-				$("#resultsText").html(data);
-			})
-		}
-			else if (numCorrect == 2) {
-			$.get("./js/documents/gettingThere.html" , function (data){
+	} else if (numCorrect == 1) {
+		$.get("./js/documents/gettingThere.html", function (data){
 				$("#resultsText").html(data);
 			});
-			}
-			else {
-			$.get("./js/documents/youWin.html", function (data){
-				$("#resultsText").html(data);
-			})
+	}
+	else if (numCorrect == 2) {
+		$.get("./js/documents/gettingThere.html" , function (data){
+			$("#resultsText").html(data);
+		});
+	}
+	else {
+		$.get("./js/documents/youWin.html", function (data){
+			$("#resultsText").html(data);
+		});
 	}
 }
