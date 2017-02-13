@@ -37,7 +37,7 @@
     "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^2.0.0",
     "gulp-webserver": "^0.9.1",
-    "jslint": "^0.10.3",
+    "html-loader": "^0.4.4",
     "livereload": "^0.6.0",
     "style-loader": "^0.13.1",
     "stylint": "^1.5.9",

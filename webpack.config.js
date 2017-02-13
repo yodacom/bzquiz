@@ -13,7 +13,14 @@ module.exports = {
         loaders: [{
             test: /styl$/,
             loader: ['style-loader', 'css-loader', 'stylus-loader']
-        }]
+        },
+            {
+                test: /\.html$/,
+                loader: 'html-loader',
+                query: {
+                    minimize: true
+                }
+            }]
     },
     plugins: [
         new webpack.ProvidePlugin({
