@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-require("../styles/main.styl");
-var $ = require("jquery");
-=======
 require('../styles/main.styl');
 var $ = require('jquery');
 var documents = require('./documents');
->>>>>>> webpack
+
 
 var beerList =[];
 var selectedBeer = null;
@@ -93,7 +89,7 @@ function search() {
 	q = $("#query").val();
 
 	//Get Request FROM API
-	var url = "http://localhost:3000/beers";
+	var url = "http://138.68.49.141:3000/beers";
 
 	var beerData = {
 		q:q
@@ -357,7 +353,7 @@ function compare(){
 }
 
 	// Calculate Results and show text
-	
+
 	function quizFinalResults (numCorrect) {
         switch(numCorrect){
             case 0: $("#resultsText").html(documents.keepTasting); break;
