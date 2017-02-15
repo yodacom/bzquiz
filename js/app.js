@@ -89,8 +89,8 @@ function search() {
 	q = $("#query").val();
 
 	//Get Request FROM API
-	// === this is the digital ocean URI pointer ===
 	
+	// === this is the digital ocean URI pointer ===
 	// var url = "http://138.68.49.141:3000/beers";
 	
 	// ==== this is the local host version ====
