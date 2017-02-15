@@ -124,12 +124,6 @@ body {
     display:none;
 }
 
-.search-result {
-    width: 80%;
-    margin: auto;
-    background:#Ddd;
-    /*border:solid 1px #222*/
-}
 
 .transition {
     -webkit-transform: scale(2.6);
