@@ -125,11 +125,16 @@ form
     padding:0px 30px 30px 30px
     background: #FFA644
     border-radius: 5px 5px 5px 5px
-   
+    margin: auto
+
 #youWin
-    background: #7fff00
+    background: #4CAF50
+    // background: #52E894
 #gettingThere
-    background: rgb(91.3%, 11.3%, 34.2%)      
+    background: #67FEFF
+
+#keepTasting
+    background:#7DFF65
 
 .input
     width: 75%
@@ -155,6 +160,11 @@ form
     cursor: pointer
     padding:10px
 
+.optin_form
+    display: flex;
+    align-items: center;
+    width: 100%
+
 .overlay
     // width: 100vw
     height: 100vh
@@ -165,8 +175,7 @@ form
 
 
 // Aweber Form Styles for experiment ====
-
-// <style type="text/css">
+<style type="text/css">
 #af-form-1196824715 .af-body .af-textWrap{width:98%;display:block;float:none;}
 #af-form-1196824715 .af-body .privacyPolicy{color:#333333;font-size:10px;font-family:Helvetica, sans-serif;}
 #af-form-1196824715 .af-body a{color:#F04F23;text-decoration:underline;font-style:normal;font-weight:normal;}
@@ -205,10 +214,10 @@ form
         // }
         // </style>
 
-        // end aweber form styles =====
+//         // end aweber form styles =====
 
 
-// ===== End Results text with modal Form email collection ====
+// // ===== End Results text with modal Form email collection ====
 
 .footnote
     padding: 5px 75px 5px 75px;
@@ -422,3 +431,35 @@ form
        border: 0;
        padding: 0;
    }
+
+.search-result
+    cursor pointer
+    position: relative
+    background-color #DDDDDD
+
+    &:hover
+      box-shadow 2px 2px 2px 2px #CCCCCC
+
+
+.vgrid
+    width: 100%
+
+.validation-message
+    color:red
+
+.readMore
+    display none
+
+.search-result-wrapper
+    position relative
+    width 80%
+    margin 0 auto
+    &:hover .readMore
+        display block
+        position absolute
+        right 1em
+        bottom 0.5em
+        font-size 0.8em
+        background-color #ffffff
+        box-shadow 2px 2px 2px 2px #AAAAAA
+        cursor pointer
