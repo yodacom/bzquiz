@@ -5,3 +5,4 @@ css/style.css
 css/modal.css
 css/srmTable.css
 *.log
+.DS_Store
