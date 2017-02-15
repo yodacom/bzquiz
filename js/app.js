@@ -89,10 +89,10 @@ function search() {
 	q = $("#query").val();
 
 	//Get Request FROM API
-	
+
 	// === this is the digital ocean URI pointer ===
 	// var url = "http://138.68.49.141:3000/beers";
-	
+
 	// ==== this is the local host version ====
 	var url = "http://localhost:3000/beers";
 
@@ -147,30 +147,56 @@ function getOutput(item) {
 	var beerPicIcon = item.labels ? item.labels.icon : "http://beerzap.s3.amazonaws.com/beer_no_image_64x64.png";
 
 	var result = $(".templates > .search-result").clone();
+    result.data("id", beerID);
+
 	var image = result.find(".beerImage");
 
 	var a = $("<a>", {class:"beerImg"});
-	a.data("id", beerID);
+
 	var img = $("<img>", {src:beerPicIcon});
 	a.append(img);
 	image.append(a);
 
 	var name = result.find(".beerName");
 	var beerNameDisplay = $("<h4>", {class:"beerName", text:beerName});
+
+	var readmore = beerDescription.length > 50;
+
 	beerDescription = beerDescription.length < 50
             ? beerDescription
-            : beerDescription.substr(0, 60) + " ... ";
+            : beerDescription.substr(0, 60) + '...';
 
-	var description = $("<div>", {class:"beerDescription", text:beerDescription});
+	var description = $("<div>", {class:"beerDescription", html:beerDescription});
 	name.append(beerNameDisplay);
 	name.append(description);
 
-	return result;
+	var wrapper = $('<div>', {class:'search-result-wrapper'});
+	wrapper.append(result);
+
+
+	if(readmore){
+	    var readlink = $('<a>', {class:"readMore", text:"Read More"});
+	    readlink.data("id", beerID);
+	    wrapper.append(readlink);
+    }
+
+	return wrapper;
 }
 
 // =====  Clicking the swatch and moving answer to Your Choice ======
 
 $(function() {
+
+    $("body").on("click", ".readMore", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var beerId = $(this).data("id");
+        selectedBeer = beerList.find(function(beer){
+            return beer.id === beerId;
+        });
+
+        $(this).parent().find('.beerDescription').text(selectedBeer.description);
+    });
 
 	$("#contents").on("click", ".swatch", function(){
 		var srm = $(this).data("color");
@@ -233,7 +259,7 @@ $(function() {
 		search();
 	});
 
-	$("#results").on("click", ".beerImg", function(e){
+	$("#results").on("click", ".search-result", function(e){
 		e.preventDefault();
 		var beerId = $(this).data("id");
 		selectedBeer = beerList.find(function(beer){
@@ -241,7 +267,16 @@ $(function() {
 		});
 		$(".selectedBeer").html(getOutput(selectedBeer));
 		$("#textContainer").html("");
-		$(".quizBtn").prop("disabled",false);
+        userChoices = {
+            color:null,
+            bitterness:null,
+            alcohol:null,
+            hoppyness:null
+        };
+        $('#alcoholContent').val(0);
+        $("#selectedAlcohol").text('');
+        //same for hoppyness and bitterness
+        $("#selectedColor").html('');
 
 	});
 
@@ -257,12 +292,16 @@ $(function() {
    // ===== quizButton Actions ==========  //
 
 	$("#quizBtn").click(function(e){
-		$(".beerAttribute").removeClass("s-grid-cell-md-4");
-		$(".beerAttribute").addClass("s-grid-cell-md-3");
-		$(".quizResults").show();
-		console.log("The selected beer:", selectedBeer);
-		console.log("The users choices", userChoices);
-		compare();
+	    if(selectedBeer) {
+            $(".beerAttribute").removeClass("s-grid-cell-md-4");
+            $(".beerAttribute").addClass("s-grid-cell-md-3");
+            $(".quizResults").show();
+            console.log("The selected beer:", selectedBeer);
+            console.log("The users choices", userChoices);
+            compare();
+        }else{
+	        $('.validation-message').text("Please select a beer");
+        }
 	});
 
 });
@@ -326,9 +365,14 @@ function compare(){
 	var numCorrect = 0;
 
 	// color compare
-	var color = userChoices.color.srm.includes(selectedBeer.srm.id);
-	$("#comparisonColor").text(color?"Correct":"Wrong");
-	numCorrect += color?1:0;
+    if(selectedBeer.srm) {
+        var color = userChoices.color.srm.includes(selectedBeer.srm.id);
+        $("#comparisonColor").text(color ? "Correct" : "Wrong");
+        numCorrect += color ? 1 : 0;
+    }else{
+        numCorrect++;
+        $("#comparisonColor").text("NOT PROVIDED");
+    }
 
 	// alcohol compare
 	var selectedAbv = selectedBeer.abv;
