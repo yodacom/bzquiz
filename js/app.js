@@ -175,9 +175,10 @@ function getOutput(item) {
 
 
 	if(readmore){
-		var readlink = $("<a>", {class:"readMore", text:"Read More"});
+		var readlink = $("<a>", {class:"readMore", text:"More"});
 		readlink.data("id", beerID);
 		wrapper.append(readlink);
+		
 	}
 
 	return wrapper;
