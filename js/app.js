@@ -195,7 +195,14 @@ $(function() {
             return beer.id === beerId;
         });
 
-        $(this).parent().find('.beerDescription').text(selectedBeer.description);
+        if($(this).text() == 'Less'){
+            $(this).text("Read More");
+            $(this).parent().find('.beerDescription').text(selectedBeer.description.substr(0, 60) + "...");
+        }else{
+            $(this).parent().find('.beerDescription').text(selectedBeer.description);
+            $(this).text("Less");
+        }
+
     });
 
 	$("#contents").on("click", ".swatch", function(){

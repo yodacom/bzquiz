@@ -103,7 +103,7 @@
     overflow: hidden;
     }
 
-#wrapper{
+#wrapper
     position: fixed;
     border-radius: 10px;
     background: #fff;
@@ -114,7 +114,12 @@
     transform: translate(-50%, -50%);
     text-align: center;
     padding:10px;
-}
+
+    @media screen and (max-width 515px)
+        top 0
+        left: 0
+        transform translate(0, 0);
+
 
 #btnClose {
     position: absolute;

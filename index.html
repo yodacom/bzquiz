@@ -23,9 +23,14 @@
 
 <h2>BeerZap beer tasting training and quiz</h2>
 <h4> What beer are we tasting today? </h4>
-<form class="form-wrapper" id="search-form">
-    <input type="search" id="query" placeholder="What beer are we tasting? " required>
-    <button type="submit" id="search-btn" value="">Search</button>
+<form class="form-wrapper s-grid-top" id="search-form">
+    <div class="s-grid-cell s-grid-cell-md-8 s-grid-cell-sm-12">
+        <input type="search" id="query" placeholder="What beer are we tasting? " required>
+    </div>
+    <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-12">
+        <button type="submit" id="search-btn" value="">Search</button>
+    </div>
+
 </form>
 
 <section class="searchResults-container">
@@ -52,7 +57,7 @@
 <!-- begin Choose Beer Attributes -->
 <div class="s-grid-cell s-grid-cell-md-6">
     <div class="s-grid-bottom vgrid">
-        <div class="s-grid-cell s-grid-cell-md-4 title-line beerAttribute">
+        <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-12 title-line beerAttribute">
             <h4>Beer Attribute</h4>
         </div>
         <div class="s-grid-cell s-grid-cell-md-4 title-line beerAttribute">
@@ -69,19 +74,19 @@
         <!-- Begin Selections with modals, and pickers -->
 
         <!-- Begin Color Picking Section -->
-        <div class="s-grid-cell s-grid-cell-md-4 beerAttribute">Color
+        <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-12 beerAttribute">Color
             <button data-page="beerColor" class="modalTrigger icon">
                 <i class="fa fa-question-circle-o" aria-hidden="true"></i>
             </button>
         </div>
 
-        <div class="s-grid-cell s-grid-cell-md-4 beerAttribute ">
+        <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute ">
             <a href="#" id="colorPicker" class="modalTrigger colorpickerBtn" data-page="swatches">
                 Choose Color
             </a>
         </div>
 
-        <div class="s-grid-cell s-grid-cell-md-4 beerAttribute" id="selectedColor">
+        <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute" id="selectedColor">
         </div>
         <div class="s-grid-cell s-grid-cell-md-3 quizResults" id="comparisonColor">
         </div>
