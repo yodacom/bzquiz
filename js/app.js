@@ -208,7 +208,7 @@ $(function() {
 	$("#contents").on("click", ".swatch", function(){
 		var srm = $(this).data("color");
 		var color = colors[srm];
-		$("#selectedColor").html($("<div>", {class:color.style, text:color.name}));
+		$("#selectedColor > .color-value").html($("<div>", {class:color.style, text:color.name}));
 		$(".modal").hide();
 		userChoices.color = color;
 	});

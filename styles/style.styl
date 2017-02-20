@@ -6,6 +6,8 @@ body
   text-align center
   padding 22px
   background-color: white
+  @media screen and (max-width:rem-calc(breakpoints[md]))
+      padding 2
 
  .box
     margin 10px
@@ -21,10 +23,17 @@ body
 
 .title-line
     border-bottom: solid 1px #000
+    @media screen and (max-width:rem-calc(breakpoints[md]))
+        display none
+
+.smallTitle
+    display:none
+    @media screen and (max-width:rem-calc(breakpoints[md]))
+        display block
 
 .vgrid
     background-color: #E9E9EA
-    width:600px;
+    width:90%;
     box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     max-width: 50rem;
@@ -240,7 +249,7 @@ form
     // -webkit-box-shadow 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2)
     // box-shadow 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2)
     input
-        width 80%
+        width 70%
         min-width: 125px
         height 40px
         padding 10px 5px
@@ -268,9 +277,11 @@ form
         //     color #999
         //     font-weight normal
         //     font-style italic
+        flex 1
     button
         overflow visible
         position relative
+        left -4px
         border 0
         padding 0
         cursor pointer
@@ -280,7 +291,7 @@ form
         color #fff
         text-transform uppercase
         background #d83c3c
-        
+
         // -moz-border-radius 0 3px 3px 0
         // -webkit-border-radius 0 3px 3px 0
         border-radius 0 3px 3px 0
@@ -303,6 +314,7 @@ form
         // &::-moz-focus-inner
         //     border 0
         //     padding 0
+        flex-shrink 1
 .nowrap
     flex: 0 0 auto
 
@@ -341,3 +353,8 @@ form
         background-color #ffffff
         box-shadow 2px 2px 2px 2px #AAAAAA
         cursor pointer
+
+.beerAttribute
+    font-weight bold
+    @media screen and (max-width:rem-calc(breakpoints[md]))
+        color blue
