@@ -8,34 +8,7 @@ body
   background-color: white
   @media screen and (max-width:rem-calc(breakpoints[md]))
       padding 2
-      
-
- .box
-    margin 10px
-    border 1px solid #eee
-    font-family arial
-    font-size 12px
-    div
-        padding 5px
-
-.title-line
-    border-bottom: solid 1px #000
-    @media screen and (max-width:rem-calc(breakpoints[md]))
-        display none
-
-.smallTitle
-    display:none
-    @media screen and (max-width:rem-calc(breakpoints[md]))
-        display block
-
-body
-  text-align center
-  padding 22px
-  background-color: white
-//   @media screen and (max-width:rem-calc(breakpoints[md]))
-//       padding 2
-
- .box
+.box
     margin 10px
     border 1px solid #eee
     font-family arial
@@ -78,7 +51,6 @@ body
     flex-direction: column
     max-with:15rem
 
-
 .my-cell
     stack()
     padding rem-calc(10)
@@ -86,10 +58,6 @@ body
     @media screen and (min-width: rem-calc(breakpoints[md]))
         cell(1, 2)
         border-radius: 3px
-
-.p
-  padding-top 30px
-  font-size 23px
 
 .quiz-wrapper
     section
@@ -181,11 +149,6 @@ form
     cursor: pointer
     padding:10px
 
-.optin_form
-    display: flex;
-    align-items: center;
-    width: 100%
-
 .overlay
     height: 100vh
     display: flex
@@ -198,7 +161,6 @@ form
     margin:auto;
 
 // ========  FORM STYL ================
-
 .form-wrapper
     padding 15px
     margin 20px auto 50px auto
@@ -268,6 +230,9 @@ form
     cursor pointer
     position: relative
     background-color #DDDDDD
+    margin-bottom: 15px
+    align-items: stretch
+    flex-wrap: nowrap
 
     &:hover
       box-shadow 2px 2px 2px 2px #CCCCCC
@@ -277,20 +242,6 @@ form
 
 .readMore
     display none
-
-.search-result-wrapper
-    position relative
-    width 80%
-    margin 0 auto
-    &:hover .readMore
-        display block
-        position absolute
-        right 1em
-        bottom 0.5em
-        font-size 0.8em
-        background-color #ffffff
-        box-shadow 2px 2px 2px 2px #AAAAAA
-        cursor pointer
 
 // // font=awesome additional styles
 
@@ -317,10 +268,10 @@ form
         border-radius: 3px
 
 .p
-  padding-top 30px
+  padding-top 50px
+  margin 20px
   font-size 23px
-
-.quiz-wrapper
+  .quiz-wrapper
     section
         grid()
         div
@@ -373,13 +324,6 @@ form
     display:flex;
     align-items: center;
 
-.modal-2
-    // width: 500px
-    padding:0px 30px 30px 30px
-    background: #FFA644
-    border-radius: 5px 5px 5px 5px
-    margin: auto
-
 #youWin
     background: #4CAF50
     // background: #52E894
@@ -413,11 +357,6 @@ form
     cursor: pointer
     padding:10px
 
-.optin_form
-    display: flex;
-    align-items: center;
-    width: 100%
-
 .overlay
     // width: 100vw
     height: 100vh
@@ -431,77 +370,10 @@ form
     text-align:center
     margin:auto
 
-// ========  FORM STYL ================
-
-.form-wrapper
-    padding 15px
-    margin 20px auto 50px auto
-    background #444
-    background rgba(0,0,0,.2)
-    flex-wrap nowrap
-    align-content: center
-    
-    input
-        flex 1
-        width 70%
-        min-width: 125px
-        height 40px
-        padding 10px 5px
-        font bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma'
-        border 0
-        background #eee
-        border-radius 3px 0 0 3px
-        &:focus
-            outline 0
-            background #fff
-            box-shadow 0 0 2px rgba(0,0,0,.8) inset
-        
-    button
-        overflow visible
-        position relative
-        left -4px
-        border 0
-        padding 0
-        cursor pointer
-        height 3.75em
-        width 6.88em
-        font bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma'
-        color #fff
-        text-transform uppercase
-        background #d83c3c
-        border-radius 0 3px 3px 0
-        text-shadow 0 -1px 0 rgba(0, 0 ,0, .3)
-        &:hover
-            background #e54040
-            &:before
-                border-right-color #e54040
-        &:before
-            content ''
-            position absolute
-            border-width 8px 8px 8px 0
-            border-style solid solid solid none
-            border-color transparent #d83c3c transparent
-            top 10px
-            left -4px
-        &:focus
-            &:before
-                border-right-color #c42f2f
-        flex-shrink 1
-.nowrap
-    flex: 0 0 auto
-
-.form-wrapper button:active, .form-wrapper button:focus
-    background #c42f2f
-
 .attributeDescription
     h3
     h4
         margin-left: 20px;
-
-.search-result
-    cursor pointer
-    position: relative
-    background-color #DDDDDD
 
     &:hover
       box-shadow 2px 2px 2px 2px #CCCCCC
@@ -514,8 +386,9 @@ form
 
 .search-result-wrapper
     position relative
-    width 80%
+    width 90%
     margin 0 auto
+    flex-wrap: nowrap
     &:hover .readMore
         display block
         position absolute
