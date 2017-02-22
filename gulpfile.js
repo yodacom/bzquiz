@@ -10,8 +10,9 @@ var gulp = require("gulp"),
     rename = require('gulp-rename'),
     stripDebug = require('gulp-strip-debug'),
     prefix = require('gulp-autoprefixer'),
-    nib = require('nib');
-    args   = require('yargs').argv;
+    nib = require('nib'),
+    args   = require('yargs').argv,
+    rupture = require('rupture');
 
 var serverUrl = args.proxy;
 
@@ -63,8 +64,8 @@ gulp.task('styles', function () {
     gulp.src(paths.styles + '/**/*.styl')
         .pipe(stylus({
             paths:  ['node_modules', 'styles/globals'],
-            import: ['stylus-type-utils', 'nib'],
-            use: [nib()],
+            import: ['stylus-type-utils', 'nib', 'rupture'],
+            use: [nib(),rupture()],
             'include css': true
         }))
         .pipe(gulp.dest(paths.css))
