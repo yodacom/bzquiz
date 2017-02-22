@@ -91,7 +91,7 @@ function search() {
 	//Get Request FROM API
 
 	// === this is the digital ocean URI pointer ===
-	// var url = "http://138.68.49.141:3000/beers";
+    //var url = "http://138.68.49.141:3000/beers";
 
 	// ==== this is the local host version ====
 	var url = "http://localhost:3000/beers";
@@ -283,7 +283,7 @@ $(function() {
         $('#alcoholContent').val(0);
         $("#selectedAlcohol").text('');
         //same for hoppyness and bitterness
-        $("#selectedColor").html('');
+        $("#selectedColor > .color-value").html('');
 
 	});
 
@@ -300,8 +300,8 @@ $(function() {
 
 	$("#quizBtn").click(function(e){
 	    if(selectedBeer) {
-            $(".beerAttribute").removeClass("s-grid-cell-md-4");
-            $(".beerAttribute").addClass("s-grid-cell-md-3");
+            $(".beerAttribute").removeClass("s-grid-cell-md-4 s-grid-cell-sm-6");
+            $(".beerAttribute").addClass("s-grid-cell-md-3 s-grid-cell-sm-4");
             $(".quizResults").show();
             console.log("The selected beer:", selectedBeer);
             console.log("The users choices", userChoices);
