@@ -299,6 +299,10 @@ $(function() {
    // ===== quizButton Actions ==========  //
 
 	$("#quizBtn").click(function(e){
+	    if(validate(userChoices) > 0){
+            $('.validation-message').text("Please choose something first.");
+            return;
+        }
 	    if(selectedBeer) {
             $(".beerAttribute").removeClass("s-grid-cell-md-4 s-grid-cell-sm-6");
             $(".beerAttribute").addClass("s-grid-cell-md-3 s-grid-cell-sm-4");
@@ -418,4 +422,13 @@ function compare(){
             case 2: $("#resultsText").html(documents.gettingThere); break;
             default: $("#resultsText").html(documents.youWin); break;
         }
-}
+    }
+
+    function validate(userChoices){
+        var errs = Object.keys(userChoices).reduce(function(a, b){
+
+            return a + (userChoices[b]?0:1);
+        }, 0);
+        console.log(errs);
+        return errs;
+    }
