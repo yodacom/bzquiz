@@ -2,6 +2,7 @@
 @import '../node_modules/s-grid/s-grid-functions'
 @import '../node_modules/s-grid/s-grid-classes'
 
+
 body
   text-align center
   padding 22px
@@ -153,77 +154,6 @@ form
     justify-content: center
     align-items: center
 
-.footnote
-    padding: 5px 75px 5px 75px;
-    text-align:center;
-    margin:auto;
-
-// ========  FORM STYL ================
-.form-wrapper
-    padding 15px
-    margin 20px auto 50px auto
-    background #444
-    background rgba(0,0,0,.2)
-    flex-wrap nowrap
-    align-content: center
-
-    input
-        flex 1
-        width 70%
-        min-width: 125px
-        height 40px
-        padding 10px 5px
-        font bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma'
-        border 0
-        background #eee
-        border-radius 3px 0 0 3px
-        &:focus
-            outline 0
-            background #fff
-            box-shadow 0 0 2px rgba(0,0,0,.8) inset
-
-    button
-        overflow visible
-        position relative
-        left -4px
-        border 0
-        padding 0
-        cursor pointer
-        height 3.75em
-        width 6.88em
-        font bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma'
-        color #fff
-        text-transform uppercase
-        background #d83c3c
-        border-radius 0 3px 3px 0
-        text-shadow 0 -1px 0 rgba(0, 0 ,0, .3)
-        &:hover
-            background #e54040
-            &:before
-                border-right-color #e54040
-        &:before
-            content ''
-            position absolute
-            border-width 8px 8px 8px 0
-            border-style solid solid solid none
-            border-color transparent #d83c3c transparent
-            top 10px
-            left -4px
-        &:focus
-            &:before
-                border-right-color #c42f2f
-        flex-shrink 1
-.nowrap
-    flex: 0 0 auto
-
-.form-wrapper button:active, .form-wrapper button:focus
-    background #c42f2f
-
-.attributeDescription
-    h3
-    h4
-        margin-left: 20px;
-
 .search-result
     cursor pointer
     position: relative
@@ -332,41 +262,10 @@ form
 #keepTasting
     background:#7DFF65
 
-.input
-    width: 75%
-    height: 44px
-    background: #FDFCFB
-    border-radius: 5px 0px 0px 5px
-    border: none
-    font-family: 'Lato', sans-serif
-    color: #737373
-    letter-spacing: 1px
-    text-indent: 5%
-
-.buttonModal
-    width: 25%
-    height: 46px
-    background-color: #c42f2f
-    border: none
-    border-radius: 0px 5px 5px 0px
-    font-family: 'Lato', sans-serif
-    font-weight: bold
-    color: inherit
-    letter-spacing: 1px
-    cursor: pointer
-    padding:10px
-
-.overlay
-    // width: 100vw
-    height: 100vh
-    display: flex
-    justify-content: center
-    align-items: center
-    // background-color: rgba(0, 0, 0, .7)
 
 .footnote
     padding: 5px 75px 5px 75px
-    text-align:center
+    text-align:left
     margin:auto
 
 .attributeDescription
@@ -398,12 +297,3 @@ form
         box-shadow 2px 2px 2px 2px #AAAAAA
         cursor pointer
 
-.beerAttribute
-    font-weight bold
-    @media screen and (max-width:rem-calc(breakpoints[md]))
-        color green
-
-.attribute-label
-    display inline-block
-    @media screen and (max-width:rem-calc(breakpoints[md]))
-        display:none
