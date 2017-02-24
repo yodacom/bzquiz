@@ -147,7 +147,7 @@ function getOutput(item) {
 	var beerPicIcon = item.labels ? item.labels.icon : "http://beerzap.s3.amazonaws.com/beer_no_image_64x64.png";
 
 	var result = $(".templates > .search-result").clone();
-    result.data("id", beerID);
+	result.data("id", beerID);
 
 	var image = result.find(".beerImage");
 
@@ -178,7 +178,7 @@ function getOutput(item) {
 	    var readlink = $('<a>', {class:"readMore", text:"Read More"});
 	    readlink.data("id", beerID);
 	    wrapper.append(readlink);
-    }
+	}
 
 	return wrapper;
 }
@@ -187,23 +187,23 @@ function getOutput(item) {
 
 $(function() {
 
-    $("body").on("click", ".readMore", function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        var beerId = $(this).data("id");
-        selectedBeer = beerList.find(function(beer){
-            return beer.id === beerId;
-        });
+	$("body").on("click", ".readMore", function(e){
+	e.preventDefault();
+	e.stopPropagation();
+	var beerId = $(this).data("id");
+	selectedBeer = beerList.find(function(beer){
+	return beer.id === beerId;
+});
 
-        if($(this).text() == 'Less'){
-            $(this).text("Read More");
-            $(this).parent().find('.beerDescription').text(selectedBeer.description.substr(0, 60) + "...");
-        }else{
-            $(this).parent().find('.beerDescription').text(selectedBeer.description);
-            $(this).text("Less");
-        }
+	if($(this).text() == 'Less'){
+	$(this).text("Read More");
+	$(this).parent().find('.beerDescription').text(selectedBeer.description.substr(0, 60) + "...");
+}else{
+	$(this).parent().find('.beerDescription').text(selectedBeer.description);
+	$(this).text("Less");
+}
 
-    });
+});
 
 	$("#contents").on("click", ".swatch", function(){
 		var srm = $(this).data("color");
@@ -246,7 +246,7 @@ $(function() {
 	$(".modalTrigger").click(function(e){
 		e.preventDefault();
 
-        $("#contents").html(documents[$(this).data("page")]);
+		$("#contents").html(documents[$(this).data("page")]);
 
 		$(".modal").show();
 	});
@@ -274,16 +274,29 @@ $(function() {
 		});
 		$(".selectedBeer").html(getOutput(selectedBeer));
 		$("#textContainer").html("");
-        userChoices = {
-            color:null,
-            bitterness:null,
-            alcohol:null,
-            hoppyness:null
-        };
-        $('#alcoholContent').val(0);
-        $("#selectedAlcohol").text('');
-        //same for hoppyness and bitterness
-        $("#selectedColor > .color-value").html('');
+		userChoices = {
+	color:null,
+	bitterness:null,
+	alcohol:null,
+	hoppyness:null
+};
+
+// =======  Reset Choices to empty when choose new beer =====
+
+		$('#alcoholContent').val(0);
+		$("#selectedAlcohol").text('');
+		$("#bitternessContent").val(0);
+		$("#selectedBitterness").text('');
+		$("#hoppynessContent").val(0);
+		$("#selectedHoppyness").text('');
+		$("#selectedColor > .color-value").html('');
+
+	// ======== clear Comparison column Values ============== 
+		
+		$("#comparisonAlcohol").text('');
+		$("#comparisonBitterness").text('');
+		$("#comparisonHoppyness").text('');
+		$("#comparisonColor").text('');
 
 	});
 
@@ -300,18 +313,20 @@ $(function() {
 
 	$("#quizBtn").click(function(e){
 	    if(selectedBeer) {
-            $(".beerAttribute").removeClass("s-grid-cell-md-4 s-grid-cell-sm-6");
-            $(".beerAttribute").addClass("s-grid-cell-md-3 s-grid-cell-sm-4");
-            $(".quizResults").show();
-            console.log("The selected beer:", selectedBeer);
-            console.log("The users choices", userChoices);
-            compare();
-        }else{
+		$(".beerAttribute").removeClass("s-grid-cell-md-4 s-grid-cell-sm-6");
+		$(".beerAttribute").addClass("s-grid-cell-md-3 s-grid-cell-sm-4");
+		$(".quizResults").show();
+		console.log("The selected beer:", selectedBeer);
+		console.log("The users choices", userChoices);
+		compare();
+	}else{
 	        $('.validation-message').text("Please select a beer");
-        }
+	}
 	});
 
 });
+
+// ====== Attribute Variables for lookup and reduction to one of three answers ========= 
 
 var alcoholContent = {
 	abv: {
@@ -330,13 +345,15 @@ var bitternessContent = {
 };
 
 var hoppinessContent = {
-	// bzh is the beerzap hoppiness scale since there is not a formal scale for this
+	
+// bzh is the beerzap hoppiness scale since there is not a formal scale for this
 	bzh: {
 		"Low":[0, 3],
 		"Medium":[4, 6],
 		"Strong":[7, 10]
 	}
 };
+// End Attribute summaries defined ============
 
 function getAbv(value) {
 	var abvValue;
@@ -372,16 +389,16 @@ function compare(){
 	var numCorrect = 0;
 
 	// color compare
-    if(selectedBeer.srm) {
-        var color = userChoices.color.srm.includes(selectedBeer.srm.id);
-        $("#comparisonColor").text(color ? "Correct" : "Wrong");
-        numCorrect += color ? 1 : 0;
-    }else{
-        numCorrect++;
-        $("#comparisonColor").text("NOT PROVIDED");
-    }
+	if(selectedBeer.srm) {
+	var color = userChoices.color.srm.includes(selectedBeer.srm.id);
+	$("#comparisonColor").text(color ? "Correct" : "Wrong");
+	numCorrect += color ? 1 : 0;
+}else{
+	numCorrect++;
+	$("#comparisonColor").text("Not Provided");
+}
 
-	// alcohol compare
+	// Alcohol compare
 	var selectedAbv = selectedBeer.abv;
 	var abvValue = getAbv(selectedAbv);
 	var alcohol = userChoices.alcohol == abvValue;
@@ -411,11 +428,11 @@ function compare(){
 
 	// Calculate Results and show text
 
-	function quizFinalResults (numCorrect) {
-        switch(numCorrect){
-            case 0: $("#resultsText").html(documents.keepTasting); break;
-            case 1:
-            case 2: $("#resultsText").html(documents.gettingThere); break;
-            default: $("#resultsText").html(documents.youWin); break;
-        }
+function quizFinalResults (numCorrect) {
+		switch(numCorrect){
+case 0: $("#resultsText").html(documents.keepTasting); break;
+case 1:
+case 2: $("#resultsText").html(documents.gettingThere); break;
+default: $("#resultsText").html(documents.youWin); break;
 }
+	}
