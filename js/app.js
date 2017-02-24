@@ -281,9 +281,16 @@ $(function() {
 	hoppyness:null
 };
 
-// =======  Reset Choices to empty when choose new beer =====
+// ====== Reset "Choose Your Value" to origional values with each new beer selection
+		// These are not working as intended 
+		// $("#beerAttribute").val(0);
+		// $("#bitternessContent > .beerAttribute").val(0);
+		// $("#hoppinessContent > .beerAttribute").val(0);
 
-		$('#alcoholContent').val(0);
+
+// =======  Reset "Your Choices"" to empty when choose new beer =====
+
+		$("#alcoholContent").val(0);
 		$("#selectedAlcohol").text('');
 		$("#bitternessContent").val(0);
 		$("#selectedBitterness").text('');
