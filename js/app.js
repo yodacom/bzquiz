@@ -1,6 +1,6 @@
-require('../styles/main.styl');
-var $ = require('jquery');
-var documents = require('./documents');
+require("../styles/main.styl");
+var $ = require("jquery");
+var documents = require("./documents");
 
 
 var beerList =[];
@@ -164,20 +164,20 @@ function getOutput(item) {
 
 	beerDescription = beerDescription.length < 50
             ? beerDescription
-            : beerDescription.substr(0, 60) + '...';
+            : beerDescription.substr(0, 60) + "...";
 
 	var description = $("<div>", {class:"beerDescription", html:beerDescription});
 	name.append(beerNameDisplay);
 	name.append(description);
 
-	var wrapper = $('<div>', {class:'search-result-wrapper'});
+	var wrapper = $("<div>", {class:"search-result-wrapper"});
 	wrapper.append(result);
 
 
 	if(readmore){
-	    var readlink = $('<a>', {class:"readMore", text:"Read More"});
-	    readlink.data("id", beerID);
-	    wrapper.append(readlink);
+		var readlink = $("<a>", {class:"readMore", text:"Read More"});
+		readlink.data("id", beerID);
+		wrapper.append(readlink);
 	}
 
 	return wrapper;
@@ -188,22 +188,22 @@ function getOutput(item) {
 $(function() {
 
 	$("body").on("click", ".readMore", function(e){
-	e.preventDefault();
-	e.stopPropagation();
-	var beerId = $(this).data("id");
-	selectedBeer = beerList.find(function(beer){
-	return beer.id === beerId;
-});
+		e.preventDefault();
+		e.stopPropagation();
+		var beerId = $(this).data("id");
+		selectedBeer = beerList.find(function(beer){
+			return beer.id === beerId;
+		});
 
-	if($(this).text() == 'Less'){
-	$(this).text("Read More");
-	$(this).parent().find('.beerDescription').text(selectedBeer.description.substr(0, 60) + "...");
-}else{
-	$(this).parent().find('.beerDescription').text(selectedBeer.description);
-	$(this).text("Less");
-}
+		if($(this).text() === "Less"){
+			$(this).text("Read More");
+			$(this).parent().find(".beerDescription").text(selectedBeer.description.substr(0, 60) + "...");
+		}else{
+			$(this).parent().find(".beerDescription").text(selectedBeer.description);
+			$(this).text("Less");
+		}
 
-});
+	});
 
 	$("#contents").on("click", ".swatch", function(){
 		var srm = $(this).data("color");
@@ -275,35 +275,34 @@ $(function() {
 		$(".selectedBeer").html(getOutput(selectedBeer));
 		$("#textContainer").html("");
 		userChoices = {
-	color:null,
-	bitterness:null,
-	alcohol:null,
-	hoppyness:null
-};
+			color:null,
+			bitterness:null,
+			alcohol:null,
+			hoppyness:null
+		};
 
 // ====== Reset "Choose Your Value" to origional values with each new beer selection
-		// These are not working as intended 
-		// $("#beerAttribute").val(0);
-		// $("#bitternessContent > .beerAttribute").val(0);
-		// $("#hoppinessContent > .beerAttribute").val(0);
+		$('#beerBitterness').prop('selectedIndex',0);
+		$('#beerAttributes').prop('selectedIndex',0);
+		$('#alcoholContent').prop('selectedIndex',0);
 
 
 // =======  Reset "Your Choices"" to empty when choose new beer =====
 
 		$("#alcoholContent").val(0);
-		$("#selectedAlcohol").text('');
+		$("#selectedAlcohol").text("");
 		$("#bitternessContent").val(0);
-		$("#selectedBitterness").text('');
+		$("#selectedBitterness").text("");
 		$("#hoppynessContent").val(0);
-		$("#selectedHoppyness").text('');
-		$("#selectedColor > .color-value").html('');
+		$("#selectedHoppyness").text("");
+		$("#selectedColor > .color-value").html("");
 
 	// ======== clear Comparison column Values ============== 
 		
-		$("#comparisonAlcohol").text('');
-		$("#comparisonBitterness").text('');
-		$("#comparisonHoppyness").text('');
-		$("#comparisonColor").text('');
+		$("#comparisonAlcohol").text("");
+		$("#comparisonBitterness").text("");
+		$("#comparisonHoppyness").text("");
+		$("#comparisonColor").text("");
 
 	});
 
@@ -319,16 +318,16 @@ $(function() {
    // ===== quizButton Actions ==========  //
 
 	$("#quizBtn").click(function(e){
-	    if(selectedBeer) {
-		$(".beerAttribute").removeClass("s-grid-cell-md-4 s-grid-cell-sm-6");
-		$(".beerAttribute").addClass("s-grid-cell-md-3 s-grid-cell-sm-4");
-		$(".quizResults").show();
-		console.log("The selected beer:", selectedBeer);
-		console.log("The users choices", userChoices);
-		compare();
-	}else{
-	        $('.validation-message').text("Please select a beer");
-	}
+		if(selectedBeer) {
+			$(".beerAttribute").removeClass("s-grid-cell-md-4 s-grid-cell-sm-6");
+			$(".beerAttribute").addClass("s-grid-cell-md-3 s-grid-cell-sm-4");
+			$(".quizResults").show();
+			console.log("The selected beer:", selectedBeer);
+			console.log("The users choices", userChoices);
+			compare();
+		}	else	{
+			$(".validation-message").text("Please select a beer");
+		}
 	});
 
 });
@@ -397,18 +396,18 @@ function compare(){
 
 	// color compare
 	if(selectedBeer.srm) {
-	var color = userChoices.color.srm.includes(selectedBeer.srm.id);
-	$("#comparisonColor").text(color ? "Correct" : "Wrong");
-	numCorrect += color ? 1 : 0;
-}else{
-	numCorrect++;
-	$("#comparisonColor").text("Not Provided");
-}
+		var color = userChoices.color.srm.includes(selectedBeer.srm.id);
+		$("#comparisonColor").text(color ? "Correct" : "Wrong");
+		numCorrect += color ? 1 : 0;
+	}else{
+		numCorrect++;
+		$("#comparisonColor").text("Not Provided");
+	}
 
 	// Alcohol compare
 	var selectedAbv = selectedBeer.abv;
 	var abvValue = getAbv(selectedAbv);
-	var alcohol = userChoices.alcohol == abvValue;
+	var alcohol = userChoices.alcohol === abvValue;
 	numCorrect += alcohol?1:0;
 	$("#comparisonAlcohol").text(alcohol?"Correct":"Wrong");
 
@@ -416,7 +415,7 @@ function compare(){
 	var selectedIbu = selectedBeer.ibu;
 	if (selectedIbu){
 		var ibuValue = getIbu(selectedIbu);
-		var bitterness = userChoices.bitterness == ibuValue;
+		var bitterness = userChoices.bitterness === ibuValue;
 		numCorrect += bitterness?1:0;
 		$("#comparisonBitterness").text(bitterness?"Correct":"Wrong");
 	} else {
@@ -425,21 +424,21 @@ function compare(){
 	}
 	// Hoppyness Compare
 	var selectedBzh = selectedBzh;
-	var hoppyness = userChoices.hoppyness == bzhValue;
+	var hoppyness = userChoices.hoppyness === bzhValue;
 	numCorrect += hoppyness?0:0;
 	$("#comparisonHoppyness").text(hoppyness?"* Recorded":"* Recorded");
 
-	    console.log(numCorrect);
+	console.log(numCorrect);
 	quizFinalResults(numCorrect);
 }
 
 	// Calculate Results and show text
 
 function quizFinalResults (numCorrect) {
-		switch(numCorrect){
-case 0: $("#resultsText").html(documents.keepTasting); break;
-case 1:
-case 2: $("#resultsText").html(documents.gettingThere); break;
-default: $("#resultsText").html(documents.youWin); break;
-}
+	switch(numCorrect){
+	case 0: $("#resultsText").html(documents.keepTasting); break;
+	case 1:
+	case 2: $("#resultsText").html(documents.gettingThere); break;
+	default: $("#resultsText").html(documents.youWin); break;
 	}
+}
