@@ -304,6 +304,11 @@ $(function() {
 		$("#comparisonHoppyness").text("");
 		$("#comparisonColor").text("");
 
+// ======= Clear modal quiz results =======
+
+		$("#resultsText").text("");
+
+
 	});
 
 // ======= Get Image to Zoom up When Hovered over ====== //
