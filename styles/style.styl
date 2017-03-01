@@ -2,11 +2,14 @@
 @import '../node_modules/s-grid/s-grid-functions'
 @import '../node_modules/s-grid/s-grid-classes'
 
+html
+    height 100%
 
 body
   text-align center
   padding 22px
   background-color: white
+  height 100%
   @media screen and (max-width:rem-calc(breakpoints[md]))
       padding 2
 .box
@@ -27,11 +30,11 @@ body
         font-size: 1.3em
         font-weight: bold
         font-family: Verdana, Geneva, Tahoma, sans-serif
-        
+
 
 .bzlogo
     align-content: center
-    margin: 20px 
+    margin: 20px
 
 .title-line
     border-bottom: solid 1px #000
@@ -314,3 +317,20 @@ form
         box-shadow 2px 2px 2px 2px #AAAAAA
         cursor pointer
 
+.loader
+    width 50px
+    text-align center
+    position absolute
+    left 50%
+    top 50%
+    transform translate(-50%, -50%)
+    color #FFFFFF
+
+.loader_wrapper
+    width 100%
+    height 100%
+    background-color rgba(50, 50, 50, 0.6)
+    display none
+    position absolute
+    top 0
+    left 0

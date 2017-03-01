@@ -80,6 +80,8 @@ var colors = {
 // SEARCH FUNCTION
 
 function search() {
+    $('.loader_wrapper').show();
+
 	// clear results first
 	$("#textContainer").html("");
 	$("#buttons").html("");
@@ -122,6 +124,7 @@ function search() {
 
              // Display buttons
              //$("#buttons").append(buttons);
+        $('.loader_wrapper').hide();
 
 	};
 	$.get(url,beerData,success);
@@ -297,8 +300,8 @@ $(function() {
 		$("#selectedHoppyness").text("");
 		$("#selectedColor > .color-value").html("");
 
-	// ======== clear Comparison column Values ============== 
-		
+	// ======== clear Comparison column Values ==============
+
 		$("#comparisonAlcohol").text("");
 		$("#comparisonBitterness").text("");
 		$("#comparisonHoppyness").text("");
@@ -318,21 +321,25 @@ $(function() {
    // ===== quizButton Actions ==========  //
 
 	$("#quizBtn").click(function(e){
-		if(selectedBeer) {
-			$(".beerAttribute").removeClass("s-grid-cell-md-4 s-grid-cell-sm-6");
-			$(".beerAttribute").addClass("s-grid-cell-md-3 s-grid-cell-sm-4");
-			$(".quizResults").show();
-			console.log("The selected beer:", selectedBeer);
-			console.log("The users choices", userChoices);
-			compare();
-		}	else	{
-			$(".validation-message").text("Please select a beer");
-		}
+	    if(validate(userChoices) > 0){
+            $('.validation-message').text("Please choose something first.");
+            return;
+        }
+	    if(selectedBeer) {
+            $(".beerAttribute").removeClass("s-grid-cell-md-4 s-grid-cell-sm-6");
+            $(".beerAttribute").addClass("s-grid-cell-md-3 s-grid-cell-sm-4");
+            $(".quizResults").show();
+            console.log("The selected beer:", selectedBeer);
+            console.log("The users choices", userChoices);
+            compare();
+        }else{
+	        $('.validation-message').text("Please select a beer");
+        }
 	});
 
 });
 
-// ====== Attribute Variables for lookup and reduction to one of three answers ========= 
+// ====== Attribute Variables for lookup and reduction to one of three answers =========
 
 var alcoholContent = {
 	abv: {
@@ -351,7 +358,7 @@ var bitternessContent = {
 };
 
 var hoppinessContent = {
-	
+
 // bzh is the beerzap hoppiness scale since there is not a formal scale for this
 	bzh: {
 		"Low":[0, 3],
@@ -434,11 +441,20 @@ function compare(){
 
 	// Calculate Results and show text
 
-function quizFinalResults (numCorrect) {
-	switch(numCorrect){
-	case 0: $("#resultsText").html(documents.keepTasting); break;
-	case 1:
-	case 2: $("#resultsText").html(documents.gettingThere); break;
-	default: $("#resultsText").html(documents.youWin); break;
-	}
-}
+	function quizFinalResults (numCorrect) {
+        switch(numCorrect){
+            case 0: $("#resultsText").html(documents.keepTasting); break;
+            case 1:
+            case 2: $("#resultsText").html(documents.gettingThere); break;
+            default: $("#resultsText").html(documents.youWin); break;
+        }
+    }
+
+    function validate(userChoices){
+        var errs = Object.keys(userChoices).reduce(function(a, b){
+
+            return a + (userChoices[b]?0:1);
+        }, 0);
+        console.log(errs);
+        return errs;
+    }
