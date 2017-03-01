@@ -1,3 +1,13 @@
+This app is designed to help craft beer drinkers improve their tasting and judgement of the key attributes of any beer - color, hoppyness, bitterness, and alcohol content. 
+
+A unique aspect of the app is that in the past bitterness was equated with hoppyness but recent developments in the crafting of beer has blurred the lines with this measurment. Brewers have started to add hops and other ingredients later in the brewing process. This has created a more hoppy flavor to the beer without the corresponding bitterness as measured by IBU. 
+
+We intend to collect users Hoppyness judgement over time and compare and contrast that with IBU bitterness scale, over time, on the beers they judge.  We will collect these ratings into a BZH rating or Beer Zap Hoppiness rating for each beer judged and add this to the open source database on beers. 
+
+Users of the app select a beer to taste, judges each of these attributes, and then the app will compare their answers to the actual answers as provided by the brewery (if they are available).  The app then calculates the results and gives an evaluation.  The user should be able to improve their tasting skills over time.
+
+The app uses a remote API for the beer attibutes and is dependent on jquery, stylus, and s-grid (a flexbox stylus grid system).  The app also uses Webpack and Gulp to manage the initalization of the app for use and production.
+
 #How to Setup Webpack
 
 ##Install Webpack
