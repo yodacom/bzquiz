@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://use.fontawesome.com/96fe5c4022.js"></script>
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+
+
+    <!-- begin Choose Beer Attributes -->
+    <div class="vgrid">
+        <div class="s-grid-bottom">
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-12 title-line beerAttribute">
+                <h4>Beer Attribute</h4>
+            </div>
+            <div class="s-grid-cell s-grid-cell-md-4 title-line beerAttribute">
+                <h4>Choose Your Value</h4>
+            </div>
+            <div class="s-grid-cell s-grid-cell-md-4 title-line beerAttribute">
+                <h4>Your Choice</h4>
+            </div>
+            <div class="s-grid-cell s-grid-cell-md-3 title-line quizResults beerAttribute" id="quizComparison">
+                <h4>Comparison</h4>
+            </div>
+
+
+            <!-- ====== Begin Selections with modals, and pickers ==== -->
+
+            <!-- Begin Color Picking Section -->
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-12 beerAttribute">Color
+                <button data-page="beerColor" class="modalTrigger icon">
+                <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </button>
+            </div>
+
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute ">
+                <a href="#" id="colorPicker" class="modalTrigger colorpickerBtn" data-page="swatches">
+                Choose Color
+            </a>
+            </div>
+
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute" id="selectedColor">
+                <div class="smallTitle">Your Choice</div>
+                <div class="color-value"></div>
+            </div>
+            <div class="s-grid-cell s-grid-cell-md-3 quizResults" id="comparisonColor">
+            </div>
+
+            <!-- End Color Picking Section -->
+
+            <!-- Begin Hoppyness Selection Section -->
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-12 beerAttribute">Hoppyness
+                <!--open description in modal window when click on icon-->
+                <button data-page="hoppyness" class="modalTrigger icon">
+                <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </button>
+            </div>
+
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute">
+                <select name="beerAttributes" id="beerAttributes">
+                <option value="0" selected>Choose value</option>
+                <option value="Strong">Strong</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+
+            </select>
+            </div>
+
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute" id="selectedHoppyness"></div>
+            <div class="s-grid-cell s-grid-cell-md-3 quizResults" id="comparisonHoppyness"></div>
+            <!-- End Hoppyness Section -->
+
+            <!-- Begin Bitterness Section -->
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-12 beerAttribute">Bitterness
+                <!--open description in modal window when click on icon-->
+                <button data-page="bitterness" class="modalTrigger icon">
+                <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </button>
+                <!-- End open description in modal window when click on icon -->
+            </div>
+
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute">
+                <select id="beerBitterness">
+                <option value="0" selected>Choose value</option>
+                <option value="Strong">Strong</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+
+            </select>
+            </div>
+
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute" id="selectedBitterness"></div>
+            <div class="s-grid-cell s-grid-cell-md-3 quizResults" id="comparisonBitterness"></div>
+            <!-- End Bitterness Section -->
+
+            <!-- Begin Alcohol section -->
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-12 beerAttribute">Alcohol Level
+                <!--open description in modal window when click on icon-->
+                <button data-page="alcohol" class="modalTrigger icon">
+                <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+            </button>
+                <!-- End open description in modal window when click on icon -->
+            </div>
+
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute">
+                <select id="alcoholContent">
+                <option value="0" selected>Choose value</option>
+                <option value="High">High</option>
+                <option value="Average">Average</option>
+                <option value="Low">Low</option>
+
+            </select>
+            </div>
+
+            <div class="s-grid-cell s-grid-cell-md-4 s-grid-cell-sm-6 beerAttribute" id="selectedAlcohol">
+            </div>
+
+            <div class="s-grid-cell s-grid-cell-md-3 beerAttribute" id="comparisonAlcohol">
+            </div>
+
+            <!-- end Alcohol section -->
+
+            <div class="templates">
+                <div class="search-result s-grid-top">
+                    <div class="s-grid-cell s-grid-cell-md-12 s-grid-top beer">
+                        <div class="s-grid-cell s-grid-cell-md-3 beerImage" id="beerImage">
+                        </div>
+                        <div class="s-grid-cell s-grid-cell-md-9 beerName">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison">
+                    <div class="comparison-result s-grid-top">
+                        <div class="s-grid-cell s-grid-cell-md-4 s-grid-top compareAnswers"></div>
+                        <div class="s-grid-cell s-grid-cell-md-4 id=choosenBeerColor"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <script src="js/plugins.js"></script>
+            <script src="build/bundle.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
