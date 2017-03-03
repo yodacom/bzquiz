@@ -1,6 +1,5 @@
 node_modules/
 .idea/
-build/
 css/style.css
 css/modal.css
 css/srmTable.css
