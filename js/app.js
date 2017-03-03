@@ -93,10 +93,10 @@ function search() {
 	//Get Request FROM API
 
 	// === this is the digital ocean URI pointer ===
-    //var url = "http://138.68.49.141:3000/beers";
+    var url = "http://138.68.49.141:3000/beers";
 
 	// ==== this is the local host version ====
-	var url = "http://localhost:3000/beers";
+	//var url = "http://localhost:3000/beers";
 
 
 	var beerData = {
