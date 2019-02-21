@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
+    "postbuild":"rm -r dist && mkdir dist && cp -r build dist/ && cp -r css dist/ && cp -r img dist/ && cp -r js dist/ && cp *.html dist/ && cp *.png dist/ && cp *.ico dist/",
     "start": "node_modules/.bin/webpack-dev-server --hot"
   },
   "dependencies": {
